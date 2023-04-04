@@ -19,34 +19,38 @@ public class Character : MonoBehaviour
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+
     public void CheckGround()
     {
-        isGrounded = Physics.Raycast(transform.position, -transform.up, 1f, 1 << LayerMask.NameToLayer("Ground")) ? true : false;
+        isGrounded = Physics.Raycast(transform.position, -transform.up, 2f, 1 << LayerMask.NameToLayer("Ground")) ? true : false;
     }
 
     public void Jump()
     {
         rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+        CheckGround();
+        Debug.Log("Grounded? " + isGrounded);
     }
 
     public void Move(Vector3 dir)
     {
-         dir.y = 0;
-        rb.velocity = dir * runSpeed;
-        if(dir != Vector3.zero)
+        if (isGrounded)
         {
-            transform.forward = dir;
+            dir.y = 0;
+            rb.velocity = dir * runSpeed;
+            if (dir.x != 0 || dir.z != 0)
+                transform.forward = dir;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

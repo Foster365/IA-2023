@@ -11,7 +11,7 @@ public class MoveStatePlayer<T> : FSMState<T>
 
     Character _player;
     Rigidbody _rigidbody;
-    
+
     float _runSpeed;
     public MoveStatePlayer(FSM<T> fsm, T idleState, T jumpState, Character player, Rigidbody rigidbody)
     {
@@ -20,25 +20,26 @@ public class MoveStatePlayer<T> : FSMState<T>
         _idleState = idleState;
         _jumpState = jumpState;
 
-        _player=player;
-        _rigidbody=rigidbody;
+        _player = player;
+        _rigidbody = rigidbody;
     }
 
     public override void Execute()
     {
         Debug.Log("MoveState Execute");
+
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
         Vector3 dir = new Vector3(h, 0, v);
         _player.Move(dir);
 
         if (h == 0 || v == 0) _fsm.Transition(_idleState);
-        //else if()
+        else if (Input.GetKeyDown(KeyCode.Space)) _fsm.Transition(_jumpState);
 
     }
 
     public override void Sleep()
     {
-        _rigidbody.velocity=Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
     }
 }

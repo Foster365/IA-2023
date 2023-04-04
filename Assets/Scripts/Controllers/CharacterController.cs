@@ -23,15 +23,15 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        characterFSM.OnUpdate();
     }
 
     void CharacterFSMInit()
     {
         characterFSM = new FSM<string>();
-        IdleStatePlayer<string> idleState = new IdleStatePlayer<string>(character.Rb);
+        IdleStatePlayer<string> idleState = new IdleStatePlayer<string>(characterFSM, "MoveState", "JumpState", character);
         MoveStatePlayer<string> moveState = new MoveStatePlayer<string>(characterFSM, "IdleState", "JumpState", character, character.Rb);
-        JumpStatePlayer<string> jumpState = new JumpStatePlayer<string>(character, character.Rb);
+        JumpStatePlayer<string> jumpState = new JumpStatePlayer<string>(characterFSM, "IdleState", character);
 
         idleState.AddTransition("MoveState", moveState);
         moveState.AddTransition("IdleState", idleState);
@@ -40,7 +40,8 @@ public class CharacterController : MonoBehaviour
         jumpState.AddTransition("IdleState", idleState);
 
         moveState.AddTransition("JumpState", jumpState);
-        jumpState.AddTransition("IdleState", idleState);
+
+        characterFSM.SetInit(idleState);
 
 
     }
