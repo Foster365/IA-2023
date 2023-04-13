@@ -39,9 +39,7 @@ public class PlayerMC : MonoBehaviour
     
     public void CheckGround()
     {
-
         _grounded = Physics.Raycast(transform.position, -transform.up, 1f, 1 << LayerMask.NameToLayer("Ground")) ? true : false;
-
     }
 
     public void Healer(int heal)
