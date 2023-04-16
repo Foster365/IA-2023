@@ -540,6 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bb419aec304bde953da1b91d873bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initState: {fileID: 11400000, guid: a4c033f67faee454486e689603917854, type: 2}
+  sbPursuitTime: 0
 --- !u!114 &1626227141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,10 +562,12 @@ MonoBehaviour:
   isAllert: 0
   isWalking: 0
   isCrouched: 0
+  isDead: 0
   fsmStates:
   - {fileID: 11400000, guid: a4c033f67faee454486e689603917854, type: 2}
   - {fileID: 11400000, guid: 8b55a95e3ff6e6a43b3a2f466adcbf9f, type: 2}
   maxLife: 100
+  playerModel: {fileID: 0}
   patrolPoints:
   - {fileID: 216989665}
   - {fileID: 1503093157}
