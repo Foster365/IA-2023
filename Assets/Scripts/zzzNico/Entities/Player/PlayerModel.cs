@@ -8,21 +8,21 @@ namespace zzzNico.Entities.Player
 {
     public class PlayerModel : EntityModel
     {
+
+        [SerializeField] private StateData[] fsmStates;
         [SerializeField] private float maxSpeed;
         [SerializeField] private float jumpForce;
         [SerializeField] private float maxLife = 100;
         [SerializeField] private LayerMask groundMask;
-        
-        
-        
+
         private Player_View _view;
         private Player_Controller _controller;
         private HealthController _healthController;
         private bool _isGrounded;
-    
+
         Rigidbody _rigidbody;
         Transform _transform;
-        
+
         void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -32,35 +32,20 @@ namespace zzzNico.Entities.Player
             _healthController.OnDie += Die;
         }
 
-        private void Update()
-        {
-        }
-
         public override EntityModel GetModel() => this;
-
-        public override void ChangeState(StateData exitState)
-        {
-            _controller.ExitCurrentState();
-            
-            //chequear si el exit del state realmente finalizo
-            
-            _controller.InitializeState(exitState);
-            
-        }
-
 
         public void Jump()
         {
             _rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
         }
-        
+
         public bool CheckGround() => Physics.Raycast(transform.position, Vector3.down, 1f, groundMask);
 
         public override void Move(Vector3 direction)
         {
             direction.y = 0;
             _rigidbody.velocity = direction * maxSpeed;
-            if(direction!=Vector3.zero)
+            if (direction != Vector3.zero)
             {
                 transform.forward = direction;
                 _view.PlayRunAnimation(this);
@@ -76,11 +61,17 @@ namespace zzzNico.Entities.Player
         {
             _healthController.Heal(healingPoint);
         }
+
+        public override StateData[] GetStates()
+        {
+            return fsmStates;
+        }
+
         public override void Die()
         {
             Debug.Log("You lose! Closing...");
         }
         public override Rigidbody GetRigidbody() => _rigidbody;
-        
+
     }
 }

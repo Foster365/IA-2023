@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _main.Scripts.ScriptableObjects.FSM.Base;
+using System;
 using UnityEngine;
 using zzzNico.FSM_SO_VERSION;
 
@@ -6,21 +7,28 @@ namespace zzzNico.Entities.Enemies
 {
     public class Enemy_Controller : MonoBehaviour
     {
-        
-        private StateData _currentState;
-        private EntityModel _model;
-        
+
+        EnemyModel _model;
+        FsmScript enemyFSM;
+        [SerializeField] StateData initState;
+        [SerializeField] float sbPursuitTime;
+        SBController enemySbController;
+
+        public SBController EnemySbController { get => enemySbController; set => enemySbController = value; }
+
         private void Awake()
         {
-            _model = GetComponent<EnemyModel>().GetModel();
+            _model = (EnemyModel)GetComponent<EnemyModel>().GetModel();
         }
-        
-        
-        
-        
+        private void Start()
+        {
+            enemyFSM = new FsmScript(_model, initState);
+            enemySbController = new SBController(_model, sbPursuitTime);
+
+        }
         private void Update()
         {
-            _currentState.State.ExecuteState(_model);
+            enemyFSM.UpdateState();
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -34,20 +42,9 @@ namespace zzzNico.Entities.Enemies
                     _model.isPatrolling = false;
                     _model.isIdle = true;
                 }
-                
+
             }
-            
-        }
 
-        public void InitializeState(StateData nextState)
-        {
-            _currentState = nextState;
-            _currentState.State.EnterState(_model);
-        }
-
-        public void ExitCurrentState()
-        {
-            _currentState.State.ExitState(_model);
         }
     }
 }

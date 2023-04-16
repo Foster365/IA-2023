@@ -21,34 +21,23 @@ namespace zzzNico.Entities.Enemies
         [SerializeField] private int damage;
         private bool _isMoving;
 
-        
+
         ISteeringBehaviour _sBehaviour;
 
-        
+
         private Rigidbody _rb;
         private HealthController _healthController;
         private Enemy_Controller _controller;
-        private BhTree _bhTree;
-
 
         private void Awake()
         {
 
             _rb = GetComponent<Rigidbody>();
-            _sBehaviour=GetComponent<ISteeringBehaviour>();
+            _sBehaviour = GetComponent<ISteeringBehaviour>();
             _healthController = new HealthController(maxLife);
             _healthController.OnDie += Die;
             _controller = GetComponent<Enemy_Controller>();
-            
-            _controller.InitializeState(fsmStates[0]);
-            _bhTree = new BhTree(fsmStates, this);
-            _bhTree.InitializeBhTree();
-            
-        }
 
-        private void Update()
-        {
-            _bhTree.CheckChangeConditions(this);
         }
 
         public override void Move(Vector3 direction)
@@ -57,7 +46,7 @@ namespace zzzNico.Entities.Enemies
             _rb.velocity = direction * movementSpeed;
             transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
             // _enemyAnimation.RunAnimation();
-            _isMoving=true;
+            _isMoving = true;
         }
 
         public override void GetDamage(int damage)
@@ -74,21 +63,17 @@ namespace zzzNico.Entities.Enemies
 
         public override EntityModel GetModel() => this;
 
-        public override void ChangeState(StateData exitState)
-        {
-            _controller.ExitCurrentState();
-            
-            //chequear si el exit del state realmente finalizo
-            
-            _controller.InitializeState(exitState);
-        }
-
         public Transform[] GetPatrolPoints() => patrolPoints;
         public float GetPatrolTimer() => restPatrolTime;
 
         public override void Die()
         {
             Destroy(this.gameObject);
+        }
+
+        public override StateData[] GetStates()
+        {
+            return fsmStates;
         }
 
         public PlayerModel GetTarget() => playerModel;
