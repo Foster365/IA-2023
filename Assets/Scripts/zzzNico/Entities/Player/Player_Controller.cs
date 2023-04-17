@@ -1,12 +1,14 @@
 ﻿using System;
 using UnityEngine;
 using zzzNico.FSM_SO_VERSION;
+using _main.Scripts.ScriptableObjects.FSM.Base;
 
 namespace zzzNico.Entities.Player
 {
     public class Player_Controller : MonoBehaviour
     {
-        
+        FsmScript playerFSM;
+        [SerializeField] StateData initialState;
         private StateData _currentState;
         private EntityModel _model;
 
@@ -17,10 +19,29 @@ namespace zzzNico.Entities.Player
 
         private void Update()
         {
-            _currentState.State.ExecuteState(_model);
+            //_currentState.State.ExecuteState(_model);
+            playerFSM.UpdateState();
+            var horizontalInput = Input.GetAxisRaw("Horizontal");
+            var verticalInput = Input.GetAxisRaw("Vertical");
+
+            Vector3 dir = new Vector3(horizontalInput, 0, verticalInput);
+
+            if (horizontalInput != 0 || verticalInput != 0)
+            {
+                _model.isWalking = true;
+                _model.isIdle = false;
+            }
+            else
+            {
+                _model.isWalking = false;
+                _model.isIdle = true;
+            }
         }
 
-
+        private void Start()
+        {
+            playerFSM = new FsmScript(_model, initialState);
+        }
 
         public void InitializeState(StateData nextState)
         {
