@@ -15,7 +15,7 @@ public class WalkStatePlayer : State
 
         Vector3 dir = new Vector3(horizontalInput, 0, verticalInput);
 
-        if(horizontalInput != 0 || verticalInput != 0)
+        if (horizontalInput != 0 || verticalInput != 0)
         {
             model.Move(dir);
         }

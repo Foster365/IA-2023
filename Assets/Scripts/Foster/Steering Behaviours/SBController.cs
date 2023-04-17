@@ -14,6 +14,9 @@ public class SBController
     Seek sbSeek;
     Pursuit sbPursuit;
     float pursuitTime;
+    Vector3 sbRouletteDir;
+
+    public Vector3 SbRouletteDir { get => sbRouletteDir; set => sbRouletteDir = value; }
     #endregion
 
     public SBController(EnemyModel _enemyModel, float _pursuitTime)
@@ -32,12 +35,12 @@ public class SBController
 
     public void GetSeekDir()
     {
-        sbSeek.GetDir();
+        sbRouletteDir = sbSeek.GetDir();
     }
 
     public void GetPursuitDir()
     {
-        sbSeek.GetDir();
+        sbRouletteDir = sbSeek.GetDir();
     }
 
 }

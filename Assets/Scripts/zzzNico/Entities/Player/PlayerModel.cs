@@ -48,7 +48,7 @@ namespace zzzNico.Entities.Player
             if (direction != Vector3.zero)
             {
                 transform.forward = direction;
-                _view.PlayRunAnimation(this);
+                //_view.PlayRunAnimation(this);
             }
         }
 

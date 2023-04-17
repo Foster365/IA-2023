@@ -39,6 +39,8 @@ public class EnemyRouletteWheel : EntityRouletteWheel
         sbRouletteWheelNodes.Add(sbSeek, 35);
         sbRouletteWheelNodes.Add(sbPursuit, 40);
         sbRouletteWheelNodes.Add(transtoPatrol, 10);
+
+        ActionNode rouletteAction = new ActionNode(RouletteAction);
     }
 
     #region Action Nodes
@@ -62,6 +64,13 @@ public class EnemyRouletteWheel : EntityRouletteWheel
     void GetTransitionToPatrol()
     {
         model.isPatrolling = true;
+    }
+
+
+    void RouletteAction()
+    {
+        INode node = sbRouletteWheel.Run(sbRouletteWheelNodes);
+        node.Execute();
     }
 
     #endregion

@@ -13,8 +13,10 @@ namespace zzzNico.Entities.Enemies
         [SerializeField] StateData initState;
         [SerializeField] float sbPursuitTime;
         SBController enemySbController;
+        EnemyRouletteWheel enemyRoulette;
 
         public SBController EnemySbController { get => enemySbController; set => enemySbController = value; }
+        public EnemyRouletteWheel EnemyRoulette { get => enemyRoulette; set => enemyRoulette = value; }
 
         private void Awake()
         {
@@ -24,6 +26,7 @@ namespace zzzNico.Entities.Enemies
         {
             enemyFSM = new FsmScript(_model, initState);
             enemySbController = new SBController(_model, sbPursuitTime);
+            enemyRoulette = new EnemyRouletteWheel(_model, this);
 
         }
         private void Update()
