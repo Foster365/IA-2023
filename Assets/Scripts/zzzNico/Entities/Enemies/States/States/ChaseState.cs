@@ -13,22 +13,24 @@ namespace zzzNico.Entities.Enemies.States.States
         {
             _enemyModel = model as EnemyModel;
             _roulette = _enemyModel.Controller.EnemyRoulette;
-            _roulette.SbRouletteInitNode.Execute();
-
-
+            _roulette.RouletteAction();
             model.isChasing = true;
         }
         public override void ExecuteState(EntityModel model)
         {
             Vector3 dir = _enemyModel.Controller.EnemySbController.SbRouletteDir;
 
-            if (dir != Vector3.zero) model.Move(dir);
+            if (dir != Vector3.zero)
+            {
+                Debug.Log("Chasing player");
+                model.Move(dir);
+            }
         }
 
 
         public override void ExitState(EntityModel model)
         {
-            
+
             model.isChasing = false;
         }
     }

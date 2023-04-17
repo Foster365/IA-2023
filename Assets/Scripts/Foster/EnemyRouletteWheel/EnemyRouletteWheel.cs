@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Roulette_Wheel;
+using System.Collections.Generic;
 using Tree;
 using zzzNico.Entities;
 using zzzNico.Entities.Enemies;
@@ -10,7 +10,7 @@ namespace Foster.EnemyRouletteWheel
     {
         Roulette sbRouletteWheel;
         Dictionary<ActionNode, int> sbRouletteWheelNodes = new Dictionary<ActionNode, int>();
-        ActionNode sbRouletteInitNode;
+        //ActionNode sbRouletteInitNode;
         EntityModel model;
         Enemy_Controller enemyController;
         //TODO: Setear en Enemy Controller un EnemyRouletteWheel obj y pasarle los par�metros al inicializar
@@ -22,7 +22,7 @@ namespace Foster.EnemyRouletteWheel
 
         public Roulette SbRouletteWheel { get => sbRouletteWheel; set => sbRouletteWheel = value; }
         public Dictionary<ActionNode, int> SbRouletteWheelNodes { get => sbRouletteWheelNodes; set => sbRouletteWheelNodes = value; }
-        public ActionNode SbRouletteInitNode { get => sbRouletteInitNode; set => sbRouletteInitNode = value; }
+        //public ActionNode SbRouletteInitNode { get => sbRouletteInitNode; set => sbRouletteInitNode = value; }
 
         private void Update()
         {
@@ -68,7 +68,7 @@ namespace Foster.EnemyRouletteWheel
         }
 
 
-        void RouletteAction()
+        public void RouletteAction()
         {
             INode node = sbRouletteWheel.Run(sbRouletteWheelNodes);
             node.Execute();
