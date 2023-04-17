@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using zzzNico.Entities;
 
-public abstract class EntityRouletteWheel
+namespace Foster.EnemyRouletteWheel
 {
-    public EntityRouletteWheel(EntityModel _model)
+    public abstract class EntityRouletteWheel
     {
+        public EntityRouletteWheel(EntityModel _model)
+        {
 
-        CreateRouletteWheel();
+            CreateRouletteWheel();
+        }
+
+        public abstract void CreateRouletteWheel();
     }
-
-    public abstract void CreateRouletteWheel();
 }

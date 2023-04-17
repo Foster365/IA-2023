@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface INode
+﻿namespace Tree
 {
-    void Execute();
+    public interface INode
+    {
+        void Execute();
+    }
 }

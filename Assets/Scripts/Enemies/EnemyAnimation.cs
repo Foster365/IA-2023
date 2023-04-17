@@ -1,25 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyAnimation : MonoBehaviour
+namespace Enemies
 {
+    public class EnemyAnimation : MonoBehaviour
+    {
     
-    public Animator _animator;
+        public Animator _animator;
 
-    void Awake()
-    {
-        _animator = GetComponent<Animator>();
+        void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+        public void RunAnimation()
+        {
+            _animator.SetTrigger("Running");
+        }
+
+        public void AttackAnimation()
+        {
+            _animator.SetTrigger("Attacking");
+        }
+
     }
-
-    public void RunAnimation()
-    {
-        _animator.SetTrigger("Running");
-    }
-
-    public void AttackAnimation()
-    {
-        _animator.SetTrigger("Attacking");
-    }
-
 }

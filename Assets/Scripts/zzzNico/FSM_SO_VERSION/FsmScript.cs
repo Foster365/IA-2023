@@ -1,46 +1,43 @@
-﻿using zzzNico.Entities;
-using zzzNico.Entities.Enemies;
-using zzzNico.FSM_SO_VERSION;
+﻿using UnityEngine;
+using zzzNico.Entities;
 
-namespace _main.Scripts.ScriptableObjects.FSM.Base
+namespace zzzNico.FSM_SO_VERSION
 {
     public class FsmScript
     {
-        private StateData[] allStateDatas;
-        private StateData currentState;
-        readonly EntityModel entityModel;
+        private StateData[] _allStateDatas;
+        private StateData _currentState;
+        readonly EntityModel _entityModel;
 
-        public FsmScript(EntityModel _entityModel, StateData _initStateData)
+        public FsmScript(EntityModel entityModel, StateData initStateData)
         {
-            entityModel = _entityModel;
-            currentState = _initStateData;
+            this._entityModel = entityModel;
+            _currentState = initStateData;
 
-            allStateDatas = entityModel.GetStates();
-            currentState.State.EnterState(entityModel);
+            _allStateDatas = this._entityModel.GetStates();
+            _currentState.State.EnterState(this._entityModel);
         }
 
         public void UpdateState()
         {
-            currentState.State.ExecuteState(entityModel);
+            _currentState.State.ExecuteState(_entityModel);
             CheckForConditions();
         }
 
         private void ChangeState(StateData nextState)
         {
-            currentState.State.ExitState(entityModel);
+            _currentState.State.ExitState(_entityModel);
 
-            //chequear si el exit del state realmente finalizo
-
-            currentState = nextState;
-            currentState.State.EnterState(entityModel);
+            _currentState = nextState;
+            _currentState.State.EnterState(_entityModel);
         }
         private void CheckForConditions()
         {
-            for (int i = 0; i < currentState.StateConditions.Length; i++)
+            for (int i = 0; i < _currentState.StateConditions.Length; i++)
             {
-                if (currentState.StateConditions[i].CompleteCondition(entityModel))
+                if (_currentState.StateConditions[i].CompleteCondition(_entityModel))
                 {
-                    ChangeState(currentState.ExitStates[i]);
+                    ChangeState(_currentState.ExitStates[i]);
                     break;
                 }
             }

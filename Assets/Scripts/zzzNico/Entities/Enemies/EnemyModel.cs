@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using Foster.Steering_Behaviours.Steering_Behaviours;
 using UnityEngine;
+using zzzNico.Entities.Enemies.Data;
 using zzzNico.Entities.Player;
 using zzzNico.FSM_SO_VERSION;
 
@@ -8,18 +11,13 @@ namespace zzzNico.Entities.Enemies
 {
     public class EnemyModel : EntityModel
     {
-        [SerializeField] private StateData[] fsmStates;
-        [SerializeField] private float maxLife;
+        [SerializeField] private EnemyData data;
+
+        [SerializeField] private Transform[] patrolPoints;
         [SerializeField] private PlayerModel playerModel;
 
-        [Header("Patrol")]
-        [SerializeField] private Transform[] patrolPoints;
-        [SerializeField] private float restPatrolTime;
 
-        [SerializeField] private float sightRange;
-        [SerializeField] private float movementSpeed;
-        [SerializeField] private int damage;
-        private bool _isMoving;
+        private float _attackCooldown;
 
 
         ISteeringBehaviour _sBehaviour;
@@ -36,19 +34,18 @@ namespace zzzNico.Entities.Enemies
 
             _rb = GetComponent<Rigidbody>();
             _sBehaviour = GetComponent<ISteeringBehaviour>();
-            _healthController = new HealthController(maxLife);
-            _healthController.OnDie += Die;
+            _healthController = new HealthController(data.MaxLife);
+            
             _controller = GetComponent<Enemy_Controller>();
-
+            _attackCooldown = data.CooldownToAttack;
         }
 
         public override void Move(Vector3 direction)
         {
             direction.y = 0;
-            _rb.velocity = direction * movementSpeed;
+            _rb.velocity = direction * data.MovementSpeed;
             transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
             // _enemyAnimation.RunAnimation();
-            _isMoving = true;
         }
 
         public override void GetDamage(int damage)
@@ -58,26 +55,48 @@ namespace zzzNico.Entities.Enemies
 
         public override void Heal(int healingPoint)
         {
-            _healthController.Heal(damage);
+            _healthController.Heal(healingPoint);
         }
 
         public override Rigidbody GetRigidbody() => _rb;
 
         public override EntityModel GetModel() => this;
 
-        public Transform[] GetPatrolPoints() => patrolPoints;
-        public float GetPatrolTimer() => restPatrolTime;
 
-        public override void Die()
+        public void Attack(Vector3 dir)
         {
-            Destroy(this.gameObject);
+            if(_attackCooldown > 0) return;
+            
+            //que dispare
+            
+            
         }
 
-        public override StateData[] GetStates()
+        public override bool IsDead()
         {
-            return fsmStates;
+            return _healthController.CurrentHealth <= 0;
         }
 
+        public bool LineOfSight(Transform target)
+        {
+            Vector3 diff = target.transform.position - transform.position;
+            
+            float distanceToTarget = diff.magnitude;
+            if (distanceToTarget > data.SightRange) return false;
+            float angleToTarget = Vector3.Angle(transform.position, diff.normalized);
+            if (angleToTarget > data.TotalSightDegrees/2) return false;
+
+            if(Physics.Raycast(transform.position, diff.normalized, data.SightRange, data.TargetLayer))
+            {
+                isAllert = true;
+                isSeeingTarget = true;
+                return true;
+            }
+            else return false;
+        }
         public PlayerModel GetTarget() => playerModel;
+        public EnemyData GetData() => data;
+        public override StateData[] GetStates() => data.FsmStates;
+        public Transform[] GetPatrolPoints() => patrolPoints;
     }
 }

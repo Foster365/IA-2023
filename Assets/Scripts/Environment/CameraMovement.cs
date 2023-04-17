@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+namespace Environment
 {
-
-    public float speed;
-    public float maxRotation;
-
-    void Update()
+    public class CameraMovement : MonoBehaviour
     {
-        transform.rotation = Quaternion.Euler(0f, maxRotation * Mathf.Sin(Time.time * speed), 0f);
-    }
 
+        public float speed;
+        public float maxRotation;
+
+        void Update()
+        {
+            transform.rotation = Quaternion.Euler(0f, maxRotation * Mathf.Sin(Time.time * speed), 0f);
+        }
+
+    }
 }

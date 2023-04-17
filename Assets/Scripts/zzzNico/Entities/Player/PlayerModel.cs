@@ -29,7 +29,6 @@ namespace zzzNico.Entities.Player
             _view = GetComponent<Player_View>();
             _controller = GetComponent<Player_Controller>();
             _healthController = new HealthController(maxLife);
-            _healthController.OnDie += Die;
         }
 
         public override EntityModel GetModel() => this;
@@ -67,10 +66,12 @@ namespace zzzNico.Entities.Player
             return fsmStates;
         }
 
-        public override void Die()
+        public override bool IsDead()
         {
-            Debug.Log("You lose! Closing...");
+            return _healthController.CurrentHealth <= 0;
         }
+
+
         public override Rigidbody GetRigidbody() => _rigidbody;
 
     }

@@ -1,46 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour
+namespace Environment
 {
-
-    public Transform target;
-    public CameraMode cameraSecurity;
-
-    bool inSight;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        cameraSecurity = GetComponent<CameraMode>();   
-    }
-
-    private void Start()
-    {
-        inSight = false;
-    }
-
-    // Update is called once per frame
-    void Update()
+    public class CameraController : MonoBehaviour
     {
 
-        FieldOfView();
+        public Transform target;
+        public CameraMode cameraSecurity;
 
-    }
+        bool inSight;
 
-    public void FieldOfView()
-    {
-
-        if(cameraSecurity.FieldofView(target))
+        // Start is called before the first frame update
+        void Awake()
         {
-            Debug.Log("In sight");
-            inSight = true;
+            cameraSecurity = GetComponent<CameraMode>();   
         }
-        else
+
+        private void Start()
         {
-            Debug.Log("Out of sight");
             inSight = false;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+            FieldOfView();
+
+        }
+
+        public void FieldOfView()
+        {
+
+            if(cameraSecurity.FieldofView(target))
+            {
+                Debug.Log("In sight");
+                inSight = true;
+            }
+            else
+            {
+                Debug.Log("Out of sight");
+                inSight = false;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
-﻿using _main.Scripts.ScriptableObjects.FSM.Base;
-using System;
+﻿using System;
+using Foster.EnemyRouletteWheel;
+using Foster.Steering_Behaviours;
 using UnityEngine;
 using zzzNico.FSM_SO_VERSION;
 
@@ -9,7 +10,7 @@ namespace zzzNico.Entities.Enemies
     {
 
         EnemyModel _model;
-        FsmScript enemyFSM;
+        FsmScript _enemyFsm;
         [SerializeField] StateData initState;
         [SerializeField] float sbPursuitTime;
         SBController enemySbController;
@@ -24,14 +25,14 @@ namespace zzzNico.Entities.Enemies
         }
         private void Start()
         {
-            enemyFSM = new FsmScript(_model, initState);
+            _enemyFsm = new FsmScript(_model, initState);
             enemySbController = new SBController(_model, sbPursuitTime);
             enemyRoulette = new EnemyRouletteWheel(_model, this);
 
         }
         private void Update()
         {
-            enemyFSM.UpdateState();
+            _enemyFsm.UpdateState();
 
             if (Input.GetKeyDown(KeyCode.Space))
             {

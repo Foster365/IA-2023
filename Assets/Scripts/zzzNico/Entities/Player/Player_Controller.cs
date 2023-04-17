@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using zzzNico.FSM_SO_VERSION;
-using _main.Scripts.ScriptableObjects.FSM.Base;
 
 namespace zzzNico.Entities.Player
 {
@@ -16,7 +15,10 @@ namespace zzzNico.Entities.Player
         {
             _model = GetComponent<PlayerModel>().GetModel();
         }
-
+        private void Start()
+        {
+            playerFSM = new FsmScript(_model, initialState);
+        }
         private void Update()
         {
             //_currentState.State.ExecuteState(_model);
@@ -38,10 +40,7 @@ namespace zzzNico.Entities.Player
             }
         }
 
-        private void Start()
-        {
-            playerFSM = new FsmScript(_model, initialState);
-        }
+        
 
         public void InitializeState(StateData nextState)
         {
