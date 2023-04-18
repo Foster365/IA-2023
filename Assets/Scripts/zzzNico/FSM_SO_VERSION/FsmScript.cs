@@ -26,6 +26,7 @@ namespace zzzNico.FSM_SO_VERSION
 
         private void ChangeState(StateData nextState)
         {
+            Debug.Log(nextState.ToString());
             _currentState.State.ExitState(_entityModel);
 
             _currentState = nextState;
