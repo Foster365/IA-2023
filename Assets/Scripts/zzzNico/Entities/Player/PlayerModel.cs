@@ -15,6 +15,7 @@ namespace zzzNico.Entities.Player
         [SerializeField] private float maxLife = 100;
         [SerializeField] private LayerMask groundMask;
 
+
         private Player_View _view;
         private Player_Controller _controller;
         private HealthController _healthController;
@@ -44,11 +45,8 @@ namespace zzzNico.Entities.Player
         {
             direction.y = 0;
             _rigidbody.velocity = direction * maxSpeed;
-            if (direction != Vector3.zero)
-            {
-                transform.forward = direction;
-                //_view.PlayRunAnimation(this);
-            }
+            transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
+            _view.PlayRunAnimation(this);
         }
 
         public override void GetDamage(int damage)
@@ -71,6 +69,12 @@ namespace zzzNico.Entities.Player
             return _healthController.CurrentHealth <= 0;
         }
 
+        public override void LookDir(Vector3 dir)
+        {
+            if (dir == Vector3.zero) return;
+            dir.y = 0;
+            transform.forward = Vector3.Lerp(transform.forward, dir, Time.deltaTime * rotSpeed);
+        }
 
         public override Rigidbody GetRigidbody() => _rigidbody;
 

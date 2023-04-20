@@ -20,7 +20,10 @@ namespace zzzNico.Entities
 
         public Rigidbody _Rb { get; set; }
 
+        public float rotSpeed;
+
         public abstract void Move(Vector3 direction);
+        public abstract void LookDir(Vector3 direction);
 
         public virtual void DoDamage(EntityModel affectedModel) { }
 

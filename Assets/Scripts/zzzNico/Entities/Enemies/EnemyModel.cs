@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Foster.Steering_Behaviours.Steering_Behaviours;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
-using Foster.Steering_Behaviours.Steering_Behaviours;
 using UnityEngine;
 using zzzNico.Entities.Enemies.Data;
 using zzzNico.Entities.Player;
@@ -35,7 +35,7 @@ namespace zzzNico.Entities.Enemies
             _rb = GetComponent<Rigidbody>();
             _sBehaviour = GetComponent<ISteeringBehaviour>();
             _healthController = new HealthController(data.MaxLife);
-            
+
             _controller = GetComponent<Enemy_Controller>();
             _attackCooldown = data.CooldownToAttack;
         }
@@ -46,6 +46,13 @@ namespace zzzNico.Entities.Enemies
             _rb.velocity = direction * data.MovementSpeed;
             transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
             // _enemyAnimation.RunAnimation();
+        }
+
+        public override void LookDir(Vector3 dir)
+        {
+            if (dir == Vector3.zero) return;
+            dir.y = 0;
+            transform.forward = Vector3.Lerp(transform.forward, dir, Time.deltaTime * rotSpeed);
         }
 
         public override void GetDamage(int damage)
@@ -65,11 +72,11 @@ namespace zzzNico.Entities.Enemies
 
         public void Attack(Vector3 dir)
         {
-            if(_attackCooldown > 0) return;
-            
+            if (_attackCooldown > 0) return;
+
             //que dispare
-            
-            
+
+
         }
 
         public override bool IsDead()
@@ -80,13 +87,13 @@ namespace zzzNico.Entities.Enemies
         public bool LineOfSight(Transform target)
         {
             Vector3 diff = target.transform.position - transform.position;
-            
+
             float distanceToTarget = diff.magnitude;
             if (distanceToTarget > data.SightRange) return false;
             float angleToTarget = Vector3.Angle(transform.position, diff.normalized);
-            if (angleToTarget > data.TotalSightDegrees/2) return false;
+            if (angleToTarget > data.TotalSightDegrees / 2) return false;
 
-            if(Physics.Raycast(transform.position, diff.normalized, data.SightRange, data.TargetLayer))
+            if (Physics.Raycast(transform.position, diff.normalized, data.SightRange, data.TargetLayer))
             {
                 isAllert = true;
                 isSeeingTarget = true;

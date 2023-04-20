@@ -18,7 +18,12 @@ namespace Foster.FSM_Player.Walk_State
             if (horizontalInput != 0 || verticalInput != 0)
             {
                 model.Move(dir);
+                model.LookDir(dir);
             }
+        }
+        public override void ExitState(EntityModel model)
+        {
+            model.Move(Vector3.zero);
         }
 
     }

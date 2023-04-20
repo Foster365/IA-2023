@@ -1,13 +1,12 @@
-﻿using System;
-using Player;
+﻿using Player;
+using System;
 using UnityEngine;
 
 namespace zzzNico.Entities.Player
 {
     public class Player_View : MonoBehaviour
     {
-        
-        
+
         PlayerAnimation _playerAnimation;
         private void Awake()
         {
@@ -18,6 +17,7 @@ namespace zzzNico.Entities.Player
         public void PlayRunAnimation(PlayerModel model)
         {
             _playerAnimation.RunningAnim(model.GetRigidbody().velocity.magnitude);
+            Debug.Log("Vel player: " + model.GetRigidbody().velocity.magnitude);
         }
     }
 }
