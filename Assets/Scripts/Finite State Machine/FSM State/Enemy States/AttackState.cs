@@ -1,43 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Enemies;
 using UnityEngine;
 
-public class AttackState<T>:FSMState<T>
+namespace Finite_State_Machine.FSM_State.Enemy_States
 {
-    int _bulletDistance;
-    LayerMask _layerMask;
-    Enemy _enemy;
-    Transform _target;
-    FSM<T> _fsm;
-    T _seekInput;
-
-    public AttackState(Enemy enemy, Transform target, LayerMask layerMask, int bulletDistance, FSM<T> fsm, T seekInput)
+    public class AttackState<T>:FSMState<T>
     {
-        _bulletDistance=bulletDistance;
-        _layerMask=layerMask;
-        _enemy = enemy;
-        _target=target;
-        _fsm=fsm;
-        _seekInput=seekInput;
-    }
+        int _bulletDistance;
+        LayerMask _layerMask;
+        Enemy _enemy;
+        Transform _target;
+        FSM<T> _fsm;
+        T _seekInput;
 
-    public override void Awake()
-    {
-        Debug.Log("SeekState Awake");
-    }
+        public AttackState(Enemy enemy, Transform target, LayerMask layerMask, int bulletDistance, FSM<T> fsm, T seekInput)
+        {
+            _bulletDistance=bulletDistance;
+            _layerMask=layerMask;
+            _enemy = enemy;
+            _target=target;
+            _fsm=fsm;
+            _seekInput=seekInput;
+        }
 
-    public override void Execute()
-    {        
-        float dist=Vector3.Distance(_enemy.transform.position, _target.transform.position);
+        public override void Awake()
+        {
+            Debug.Log("SeekState Awake");
+        }
 
-        Debug.Log("Attacking player");
-        _enemy.Attack(/*_target, _bulletDistance, _layerMask*/);
-        if(dist>_bulletDistance)
-            _fsm.Transition(_seekInput);
-    }
+        public override void Execute()
+        {        
+            float dist=Vector3.Distance(_enemy.transform.position, _target.transform.position);
 
-    public override void Sleep()
-    {
-        Debug.Log("SeekState Sleep");
+            Debug.Log("Attacking player");
+            _enemy.Attack(/*_target, _bulletDistance, _layerMask*/);
+            if(dist>_bulletDistance)
+                _fsm.Transition(_seekInput);
+        }
+
+        public override void Sleep()
+        {
+            Debug.Log("SeekState Sleep");
+        }
     }
 }

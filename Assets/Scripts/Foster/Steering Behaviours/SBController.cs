@@ -1,46 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
+using Foster.Steering_Behaviours.Steering_Behaviours;
 using UnityEngine;
 using zzzNico.Entities.Enemies;
 using zzzNico.Entities.Player;
 
-public class SBController
+namespace Foster.Steering_Behaviours
 {
-
-    EnemyModel enemyModel;
-    PlayerModel target;
-
-    #region Steering Behaviours Variables
-    Seek sbSeek;
-    Pursuit sbPursuit;
-    float pursuitTime;
-    Vector3 sbRouletteDir;
-
-    public Vector3 SbRouletteDir { get => sbRouletteDir; set => sbRouletteDir = value; }
-    #endregion
-
-    public SBController(EnemyModel _enemyModel, float _pursuitTime)
+    public class SBController
     {
-        enemyModel = _enemyModel;
-        target = _enemyModel.GetTarget();
-        pursuitTime = _pursuitTime;
-        InitializeSB();
-    }
 
-    void InitializeSB()
-    {
-        sbSeek = new Seek(enemyModel.transform, target.transform);
-        sbPursuit = new Pursuit(enemyModel.transform, target, pursuitTime);
-    }
+        EnemyModel enemyModel;
+        PlayerModel target;
 
-    public void GetSeekDir()
-    {
-        sbRouletteDir = sbSeek.GetDir();
-    }
+        #region Steering Behaviours Variables
+        Seek sbSeek;
+        Pursuit sbPursuit;
+        float pursuitTime;
+        Vector3 sbRouletteDir;
 
-    public void GetPursuitDir()
-    {
-        sbRouletteDir = sbSeek.GetDir();
-    }
+        public Vector3 SbRouletteDir { get => sbRouletteDir; set => sbRouletteDir = value; }
+        #endregion
 
+        public SBController(EnemyModel _enemyModel, float _pursuitTime)
+        {
+            enemyModel = _enemyModel;
+            target = _enemyModel.GetTarget();
+            pursuitTime = _pursuitTime;
+            InitializeSB();
+        }
+
+        void InitializeSB()
+        {
+            sbSeek = new Seek(enemyModel.transform, target.transform);
+            sbPursuit = new Pursuit(enemyModel.transform, target, pursuitTime);
+        }
+
+        public void GetSeekDir()
+        {
+            sbRouletteDir = sbSeek.GetDir();
+        }
+
+        public void GetPursuitDir()
+        {
+            sbRouletteDir = sbSeek.GetDir();
+        }
+
+    }
 }

@@ -1,33 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+namespace Player
 {
-
-    public Animator _animator;
-
-    // public void Grounded(bool _grounded)
-    // {
-    //     _animator.SetBool("Grounded", _grounded);
-    // }
-
-    public void RunningAnim(float velocity)
+    public class PlayerAnimation : MonoBehaviour
     {
 
-        _animator.SetFloat("Vel", velocity);
+        public Animator _animator;
 
-    }
+        // public void Grounded(bool _grounded)
+        // {
+        //     _animator.SetBool("Grounded", _grounded);
+        // }
 
-    //public void RunAnimation(bool _running)
-    //{
-    //    _animator.SetBool("Running", _running);
-    //}
+        public void RunningAnim(float velocity)
+        {
 
-    public void JumpAnim()
-    {
-        _animator.SetTrigger("onJump");
-    }
+            _animator.SetFloat("Vel", velocity);
+
+        }
+
+        //public void RunAnimation(bool _running)
+        //{
+        //    _animator.SetBool("Running", _running);
+        //}
+
+        public void JumpAnim()
+        {
+            _animator.SetTrigger("onJump");
+        }
     
 
+    }
 }

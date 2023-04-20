@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Minimap : MonoBehaviour
+namespace UI
 {
-
-    public Transform playerTransform;
-
-    private void LateUpdate() //Se actualiza después de que se mueve el player
+    public class Minimap : MonoBehaviour
     {
 
-        Vector3 newPosition = playerTransform.position;
-        newPosition.y = transform.position.y;
-        transform.position = newPosition;
+        public Transform playerTransform;
 
-        transform.rotation = Quaternion.Euler(90, playerTransform.eulerAngles.y, 0);
+        private void LateUpdate() //Se actualiza después de que se mueve el player
+        {
+
+            Vector3 newPosition = playerTransform.position;
+            newPosition.y = transform.position.y;
+            transform.position = newPosition;
+
+            transform.rotation = Quaternion.Euler(90, playerTransform.eulerAngles.y, 0);
         
+        }
     }
 }

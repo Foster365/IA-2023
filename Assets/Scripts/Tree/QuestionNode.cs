@@ -1,30 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class QuestionNode : INode
+﻿namespace Tree
 {
-    public delegate bool myDelegate();
-    myDelegate _question;
-    INode _trueNode;
-    INode _falseNode;
-    public QuestionNode(myDelegate question, INode tN, INode fN)
+    public class QuestionNode : INode
     {
-        _question = question;
-        _trueNode = tN;
-        _falseNode = fN;
-    }
-    public void Execute()
-    {
-        if (_question())
+        public delegate bool myDelegate();
+        myDelegate _question;
+        INode _trueNode;
+        INode _falseNode;
+        public QuestionNode(myDelegate question, INode tN, INode fN)
         {
-            //True
-            _trueNode.Execute();
+            _question = question;
+            _trueNode = tN;
+            _falseNode = fN;
         }
-        else
+        public void Execute()
         {
-            //False
-            _falseNode.Execute();
+            if (_question())
+            {
+                //True
+                _trueNode.Execute();
+            }
+            else
+            {
+                //False
+                _falseNode.Execute();
+            }
         }
     }
 }

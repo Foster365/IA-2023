@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using zzzNico.Entities.Enemies;
-using zzzNico.Entities.Player;
 
-public class Seek : ISteeringBehaviour
+namespace Foster.Steering_Behaviours.Steering_Behaviours
 {
-
-    Transform origin;
-    Transform target;
-
-    public Seek(Transform origin, Transform target)
+    public class Seek : ISteeringBehaviour
     {
-        this.origin = origin;
-        this.target = target;
-    }
 
-    public Vector3 GetDir()
-    {
-        return (target.position - origin.position).normalized;
-    }
+        Transform origin;
+        Transform target;
 
+        public Seek(Transform origin, Transform target)
+        {
+            this.origin = origin;
+            this.target = target;
+        }
+
+        public Vector3 GetDir()
+        {
+            return (target.position - origin.position).normalized;
+        }
+
+    }
 }

@@ -1,13 +1,15 @@
-using System;
 using UnityEngine;
 using zzzNico.Entities;
 using zzzNico.FSM_SO_VERSION;
 
-[CreateAssetMenu(fileName = "IdleState", menuName = "_main/States/PlayerStates/IdleState", order = 0)]
-public class IdleStatePlayer : State
+namespace Foster.FSM_Player.Idle_State
 {
-    public override void ExecuteState(EntityModel model)
+    [CreateAssetMenu(fileName = "IdleState", menuName = "_main/States/PlayerStates/IdleState", order = 0)]
+    public class IdleStatePlayer : State
     {
-        //playanimation
+        public override void ExecuteState(EntityModel model)
+        {
+            //playanimation
+        }
     }
 }

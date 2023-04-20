@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using zzzNico.Entities;
 using zzzNico.FSM_SO_VERSION;
 
-[CreateAssetMenu(fileName = "WalkState", menuName = "_main/States/PlayerStates/WalkState", order = 0)]
-
-public class WalkStatePlayer : State
+namespace Foster.FSM_Player.Walk_State
 {
-    public override void ExecuteState(EntityModel model)
+    [CreateAssetMenu(fileName = "WalkState", menuName = "_main/States/PlayerStates/WalkState", order = 0)]
+
+    public class WalkStatePlayer : State
     {
-        var horizontalInput = Input.GetAxisRaw("Horizontal");
-        var verticalInput = Input.GetAxisRaw("Vertical");
-
-        Vector3 dir = new Vector3(horizontalInput, 0, verticalInput);
-
-        if (horizontalInput != 0 || verticalInput != 0)
+        public override void ExecuteState(EntityModel model)
         {
-            model.Move(dir);
-        }
-    }
+            var horizontalInput = Input.GetAxisRaw("Horizontal");
+            var verticalInput = Input.GetAxisRaw("Vertical");
 
+            Vector3 dir = new Vector3(horizontalInput, 0, verticalInput);
+
+            if (horizontalInput != 0 || verticalInput != 0)
+            {
+                model.Move(dir);
+            }
+        }
+
+    }
 }

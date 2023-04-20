@@ -8,8 +8,9 @@ namespace zzzNico.Entities
 
         public bool isIdle;
         public bool isPatrolling;
+        public bool isSeeingTarget;
         public bool isChasing;
-        public bool isAttaking;
+        public bool isAttacking;
         public bool isSearching;
         public bool isAllert;
 
@@ -28,7 +29,7 @@ namespace zzzNico.Entities
         public abstract Rigidbody GetRigidbody();
         public abstract EntityModel GetModel();
         public abstract StateData[] GetStates();
-        public abstract void Die();
+        public abstract bool IsDead();
         public virtual Vector3 GetFoward => transform.forward;
         public virtual float GetSpeed => _Rb.velocity.magnitude;
     }

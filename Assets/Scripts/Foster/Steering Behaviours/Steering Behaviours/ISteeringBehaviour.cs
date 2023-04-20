@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
-public interface ISteeringBehaviour
+namespace Foster.Steering_Behaviours.Steering_Behaviours
 {
+    public interface ISteeringBehaviour
+    {
 
-    Vector3 GetDir();
+        Vector3 GetDir();
 
+    }
 }

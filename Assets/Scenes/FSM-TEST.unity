@@ -152,7 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477434746
 GameObject:
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 477434750}
   - component: {fileID: 477434749}
   - component: {fileID: 477434748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022414629
 GameObject:
@@ -395,9 +395,9 @@ GameObject:
   - component: {fileID: 1338374557}
   - component: {fileID: 1338374555}
   - component: {fileID: 1338374562}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,8 +416,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIdle: 0
   isPatrolling: 0
+  isSeeingTarget: 0
   isChasing: 0
-  isAttaking: 0
+  isAttacking: 0
   isSearching: 0
   isAllert: 0
   isWalking: 0
@@ -520,12 +521,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338374554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8525963, y: 1.74, z: 4.1374464}
+  m_LocalPosition: {x: -21.96, y: 1.74, z: 4.1374464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1338374562
 MonoBehaviour:
@@ -653,7 +654,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1626227138
 GameObject:
@@ -668,9 +669,9 @@ GameObject:
   - component: {fileID: 1626227140}
   - component: {fileID: 1626227139}
   - component: {fileID: 1626227143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bb419aec304bde953da1b91d873bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initState: {fileID: 11400000, guid: a4c033f67faee454486e689603917854, type: 2}
+  initState: {fileID: 11400000, guid: dcdec36be782bcb4f808c90c79c09ad8, type: 2}
   sbPursuitTime: 0
 --- !u!114 &1626227141
 MonoBehaviour:
@@ -716,26 +717,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIdle: 0
   isPatrolling: 0
+  isSeeingTarget: 0
   isChasing: 0
-  isAttaking: 0
+  isAttacking: 0
   isSearching: 0
   isAllert: 0
   isWalking: 0
   isCrouched: 0
   isDead: 0
-  fsmStates:
-  - {fileID: 11400000, guid: a4c033f67faee454486e689603917854, type: 2}
-  - {fileID: 11400000, guid: 8b55a95e3ff6e6a43b3a2f466adcbf9f, type: 2}
-  maxLife: 100
-  playerModel: {fileID: 0}
+  data: {fileID: 11400000, guid: cc16db8053fe19841afb654e0b9694db, type: 2}
   patrolPoints:
   - {fileID: 216989665}
   - {fileID: 1503093157}
   - {fileID: 581687709}
-  restPatrolTime: 2
-  sightRange: 10
-  movementSpeed: 2
-  damage: 10
+  playerModel: {fileID: 1338374555}
 --- !u!4 &1626227142
 Transform:
   m_ObjectHideFlags: 0

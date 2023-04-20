@@ -1,17 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Waypoint : MonoBehaviour
+namespace Environment.Waypoint_System
 {
-
-    private void OnDrawGizmos()
+    public class Waypoint : MonoBehaviour
     {
 
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, 1);
+        private void OnDrawGizmos()
+        {
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.position, 1);
+
+        }
+
 
     }
-
-
 }
