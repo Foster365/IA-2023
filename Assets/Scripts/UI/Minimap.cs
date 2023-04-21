@@ -14,8 +14,8 @@ namespace UI
             newPosition.y = transform.position.y;
             transform.position = newPosition;
 
-            transform.rotation = Quaternion.Euler(90, playerTransform.eulerAngles.y, 0);
-        
+            //transform.rotation = Quaternion.Euler(90, playerTransform.eulerAngles.y, 0);
+
         }
     }
 }
