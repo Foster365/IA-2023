@@ -25,6 +25,12 @@ namespace zzzNico.Entities.Player
             Debug.Log("Is grounded? " + _model.IsGrounded);
 
             playerFSM.UpdateState();
+
+            CheckMovementControls();
+            CheckJumpControls();
+        }
+        void CheckMovementControls()
+        {
             var horizontalInput = Input.GetAxisRaw("Horizontal");
             var verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -40,17 +46,17 @@ namespace zzzNico.Entities.Player
                 _model.isIdle = true;
                 _model.isJumping = false;
             }
-
-            if (Input.GetKeyDown(KeyCode.Space) /*&& _model.IsGrounded*/)
+        }
+        void CheckJumpControls()
+        {
+            if (Input.GetAxisRaw("Jump") != 0) /*&& _model.IsGrounded*/
             {
                 Debug.Log("Jump key pressed");
-                _model.isWalking = false;
-                _model.isIdle = false;
                 _model.isJumping = true;
+                _model.isIdle = false;
+                _model.isWalking = false;
             }
         }
-
-
 
         public void InitializeState(StateData nextState)
         {

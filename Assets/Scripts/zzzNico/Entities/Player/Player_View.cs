@@ -22,5 +22,11 @@ namespace zzzNico.Entities.Player
         {
             _playerAnimation.JumpAnim();
         }
+
+        public void ResetTriggerAnim(string _animName)
+        {
+
+            _playerAnimation._animator.ResetTrigger(_animName);
+        }
     }
 }

@@ -9,13 +9,13 @@ namespace Player
 
         public void RunningAnim(float velocity)
         {
-
             _animator.SetFloat("Vel", velocity);
 
         }
 
         public void JumpAnim()
         {
+            Debug.Log("Jump anim called");
             _animator.SetTrigger("onJump");
         }
 

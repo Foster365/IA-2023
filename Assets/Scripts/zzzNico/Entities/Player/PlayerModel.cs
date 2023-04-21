@@ -39,6 +39,7 @@ namespace zzzNico.Entities.Player
 
         public void Jump()
         {
+            _view.ResetTriggerAnim("onJump");
             _rigidbody.velocity = Vector3.zero;
             //_rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
             _view.PlayerJumpAnimation();
