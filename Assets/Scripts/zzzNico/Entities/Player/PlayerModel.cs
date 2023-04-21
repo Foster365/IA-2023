@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foster.Steering_Behaviours.Steering_Behaviours;
+using System;
 using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,7 +46,8 @@ namespace zzzNico.Entities.Player
         {
             direction.y = 0;
             _rigidbody.velocity = direction * maxSpeed;
-            transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
+            if (direction.x != 0 || direction.z != 0)
+                transform.forward = direction;
             _view.PlayRunAnimation(this);
         }
 
