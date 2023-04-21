@@ -15,6 +15,7 @@ namespace zzzNico.Entities
         public bool isAllert;
 
         public bool isWalking;
+        public bool isJumping;
         public bool isCrouched;
         public bool isDead;
 

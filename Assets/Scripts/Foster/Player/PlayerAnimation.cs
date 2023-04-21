@@ -7,11 +7,6 @@ namespace Player
 
         public Animator _animator;
 
-        // public void Grounded(bool _grounded)
-        // {
-        //     _animator.SetBool("Grounded", _grounded);
-        // }
-
         public void RunningAnim(float velocity)
         {
 
@@ -19,16 +14,10 @@ namespace Player
 
         }
 
-        //public void RunAnimation(bool _running)
-        //{
-        //    _animator.SetBool("Running", _running);
-        //}
-
         public void JumpAnim()
         {
             _animator.SetTrigger("onJump");
         }
-    
 
     }
 }

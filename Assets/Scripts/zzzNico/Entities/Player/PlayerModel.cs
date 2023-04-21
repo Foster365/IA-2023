@@ -20,10 +20,12 @@ namespace zzzNico.Entities.Player
         private Player_View _view;
         private Player_Controller _controller;
         private HealthController _healthController;
-        private bool _isGrounded;
+        bool _isGrounded;
 
         Rigidbody _rigidbody;
         Transform _transform;
+
+        public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
 
         void Awake()
         {
@@ -37,10 +39,15 @@ namespace zzzNico.Entities.Player
 
         public void Jump()
         {
-            _rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+            _rigidbody.velocity = Vector3.zero;
+            //_rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+            _view.PlayerJumpAnimation();
         }
 
-        public bool CheckGround() => Physics.Raycast(transform.position, Vector3.down, 1f, groundMask);
+        public bool CheckGround()
+        {
+            return _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 10f, groundMask) ? true : false;
+        }
 
         public override void Move(Vector3 direction)
         {
@@ -79,6 +86,11 @@ namespace zzzNico.Entities.Player
         }
 
         public override Rigidbody GetRigidbody() => _rigidbody;
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawRay(transform.position, -transform.up * .1f);
+        }
 
     }
 }

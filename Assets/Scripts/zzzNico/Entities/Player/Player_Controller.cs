@@ -9,11 +9,11 @@ namespace zzzNico.Entities.Player
         FsmScript playerFSM;
         [SerializeField] StateData initialState;
         private StateData _currentState;
-        private EntityModel _model;
+        private PlayerModel _model;
 
         private void Awake()
         {
-            _model = GetComponent<PlayerModel>().GetModel();
+            _model = GetComponent<PlayerModel>();
         }
         private void Start()
         {
@@ -21,31 +21,41 @@ namespace zzzNico.Entities.Player
         }
         private void Update()
         {
-            //_currentState.State.ExecuteState(_model);
+            _model.CheckGround();
+            Debug.Log("Is grounded? " + _model.IsGrounded);
+
             playerFSM.UpdateState();
             var horizontalInput = Input.GetAxisRaw("Horizontal");
             var verticalInput = Input.GetAxisRaw("Vertical");
-
-            Vector3 dir = new Vector3(horizontalInput, 0, verticalInput);
 
             if (horizontalInput != 0 || verticalInput != 0)
             {
                 _model.isWalking = true;
                 _model.isIdle = false;
+                _model.isJumping = false;
             }
             else
             {
                 _model.isWalking = false;
                 _model.isIdle = true;
+                _model.isJumping = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) /*&& _model.IsGrounded*/)
+            {
+                Debug.Log("Jump key pressed");
+                _model.isWalking = false;
+                _model.isIdle = false;
+                _model.isJumping = true;
             }
         }
 
-        
+
 
         public void InitializeState(StateData nextState)
         {
             _currentState = nextState;
-            
+
             _currentState.State.EnterState(_model);
         }
 
