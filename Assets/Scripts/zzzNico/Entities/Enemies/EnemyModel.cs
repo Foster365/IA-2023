@@ -15,6 +15,7 @@ namespace zzzNico.Entities.Enemies
 
         [SerializeField] private Transform[] patrolPoints;
         [SerializeField] private PlayerModel playerModel;
+        EnemyView _enemyView;
 
 
         private float _attackCooldown;
@@ -35,6 +36,7 @@ namespace zzzNico.Entities.Enemies
             _rb = GetComponent<Rigidbody>();
             _sBehaviour = GetComponent<ISteeringBehaviour>();
             _healthController = new HealthController(data.MaxLife);
+            _enemyView = GetComponent<EnemyView>();
 
             _controller = GetComponent<Enemy_Controller>();
             _attackCooldown = data.CooldownToAttack;
@@ -45,7 +47,7 @@ namespace zzzNico.Entities.Enemies
             direction.y = 0;
             _rb.velocity = direction * data.MovementSpeed;
             transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
-            // _enemyAnimation.RunAnimation();
+            _enemyView.PlayRunAnimation(this);
         }
 
         public override void LookDir(Vector3 dir)

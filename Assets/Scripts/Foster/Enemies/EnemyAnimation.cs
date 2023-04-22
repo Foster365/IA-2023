@@ -4,22 +4,13 @@ namespace Enemies
 {
     public class EnemyAnimation : MonoBehaviour
     {
-    
+
         public Animator _animator;
 
-        void Awake()
+        public void RunningAnim(float velocity)
         {
-            _animator = GetComponent<Animator>();
-        }
+            _animator.SetFloat("Vel", velocity);
 
-        public void RunAnimation()
-        {
-            _animator.SetTrigger("Running");
-        }
-
-        public void AttackAnimation()
-        {
-            _animator.SetTrigger("Attacking");
         }
 
     }

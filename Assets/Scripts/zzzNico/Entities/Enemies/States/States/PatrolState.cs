@@ -49,6 +49,7 @@ namespace zzzNico.Entities.Enemies.States.States
             }
             else
             {
+                model.GetRigidbody().velocity = Vector3.zero;
                 _movementDatas[model].timer -= Time.deltaTime;
                 if (_movementDatas[model].timer <= 0)
                 {
@@ -65,6 +66,7 @@ namespace zzzNico.Entities.Enemies.States.States
         public override void ExitState(EntityModel model)
         {
             model.isPatrolling = false;
+            model.Move(Vector3.zero);
         }
     }
 
