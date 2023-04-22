@@ -23,20 +23,6 @@ namespace Foster.FSM_Player.Walk_State
                 model.LookDir(model.GetFoward);
             }
             
-            
-            
-            /*
-            var horizontalInput = Input.GetAxisRaw("Horizontal");
-            var verticalInput = Input.GetAxisRaw("Vertical");
-
-            Vector3 dir = new Vector3(horizontalInput, 0, verticalInput);
-
-            if (horizontalInput != 0 || verticalInput != 0)
-            {
-                model.Move(dir);
-                model.LookDir(model.GetFoward);
-            }
-            */
         }
         public override void ExitState(EntityModel model)
         {

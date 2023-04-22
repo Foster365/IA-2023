@@ -46249,6 +46249,7 @@ GameObject:
   - component: {fileID: 1434087915}
   - component: {fileID: 1434087914}
   - component: {fileID: 1434087913}
+  - component: {fileID: 1434087916}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -46264,7 +46265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434087911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46335,6 +46336,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434087911}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1434087916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434087911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c43955d616139d4d861490430800f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1445016528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53602,7 +53615,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 61.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -55013,7 +55026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680939294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.91, y: 8.73, z: 123.69}
+  m_LocalPosition: {x: 64.06, y: 8.73, z: 107.88}
   m_LocalScale: {x: 5, y: 20, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -73492,6 +73505,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minimap Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6546864432888083346, guid: a545aa265f034654cb1dcd4c3bc96902,
+        type: 3}
+      propertyPath: orthographic size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546864432888083346, guid: a545aa265f034654cb1dcd4c3bc96902,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546864432888083346, guid: a545aa265f034654cb1dcd4c3bc96902,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6546864432888083347, guid: a545aa265f034654cb1dcd4c3bc96902,
         type: 3}
       propertyPath: m_RootOrder
@@ -73505,12 +73533,12 @@ PrefabInstance:
     - target: {fileID: 6546864432888083347, guid: a545aa265f034654cb1dcd4c3bc96902,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.38
+      value: 15.27
       objectReference: {fileID: 0}
     - target: {fileID: 6546864432888083347, guid: a545aa265f034654cb1dcd4c3bc96902,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6546864432888083347, guid: a545aa265f034654cb1dcd4c3bc96902,
         type: 3}

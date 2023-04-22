@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -29,7 +30,7 @@ public class Timer : MonoBehaviour
         if (timeLeft < 0)
         {
             timerUI.text = "00:00";
-            Debug.Log("You lose!");
+            SceneManager.LoadScene("Game Over");
         }
     }
 }

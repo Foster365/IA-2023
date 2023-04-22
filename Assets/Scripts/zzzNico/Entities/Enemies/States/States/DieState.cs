@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using State = zzzNico.FSM_SO_VERSION.State;
 
 namespace zzzNico.Entities.Enemies.States.States
@@ -9,6 +10,7 @@ namespace zzzNico.Entities.Enemies.States.States
         public override void EnterState(EntityModel model)
         {
             model.isDead = true;
+            SceneManager.LoadScene("Game Over");
         }
 
         public override void ExecuteState(EntityModel model)
