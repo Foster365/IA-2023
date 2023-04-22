@@ -53,9 +53,11 @@ namespace zzzNico.Entities.Player
         public override void Move(Vector3 direction)
         {
             direction.y = 0;
-            _rigidbody.velocity = direction * maxSpeed;
-            if (direction.x != 0 || direction.z != 0)
-                transform.forward = direction;
+            _rigidbody.velocity = direction * (maxSpeed * Time.deltaTime);
+
+            if (direction.magnitude != 0)
+                LookDir(direction);
+           
             _view.PlayRunAnimation(this);
         }
 

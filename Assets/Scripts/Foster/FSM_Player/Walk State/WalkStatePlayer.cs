@@ -10,6 +10,22 @@ namespace Foster.FSM_Player.Walk_State
     {
         public override void ExecuteState(EntityModel model)
         {
+            var horizontalInput = model.transform.right * Input.GetAxis("Horizontal");
+            var verticalInput = model.transform.forward * Input.GetAxis("Vertical");
+
+            
+            Vector3 dir = (horizontalInput + verticalInput).normalized;
+            
+            
+            if (dir.magnitude != 0)
+            {
+                model.Move(dir);
+                model.LookDir(model.GetFoward);
+            }
+            
+            
+            
+            /*
             var horizontalInput = Input.GetAxisRaw("Horizontal");
             var verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -20,6 +36,7 @@ namespace Foster.FSM_Player.Walk_State
                 model.Move(dir);
                 model.LookDir(model.GetFoward);
             }
+            */
         }
         public override void ExitState(EntityModel model)
         {
