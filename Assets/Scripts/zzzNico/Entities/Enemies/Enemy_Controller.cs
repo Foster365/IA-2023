@@ -16,6 +16,11 @@ namespace zzzNico.Entities.Enemies
         SBController enemySbController;
         EnemyRouletteWheel enemyRoulette;
 
+        public int maxObs;
+        public LayerMask obsMask;
+        public float obsAngle;
+        public float obsRadius;
+
         public SBController EnemySbController { get => enemySbController; set => enemySbController = value; }
         public EnemyRouletteWheel EnemyRoulette { get => enemyRoulette; set => enemyRoulette = value; }
 
@@ -26,7 +31,7 @@ namespace zzzNico.Entities.Enemies
         private void Start()
         {
             _enemyFsm = new FsmScript(_model, initState);
-            enemySbController = new SBController(_model, sbPursuitTime);
+            enemySbController = new SBController(_model, sbPursuitTime, maxObs, obsMask, obsAngle, obsRadius);
             enemyRoulette = new EnemyRouletteWheel(_model, this);
 
         }

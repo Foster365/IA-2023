@@ -23,7 +23,8 @@ namespace zzzNico.Entities.Enemies.States.States
         }
         public override void ExecuteState(EntityModel model)
         {
-            Vector3 dir = _entitiesData[model].Controller.EnemySbController.SbRouletteDir;
+            Vector3 dirAvoidance = _enemyModel.Controller.EnemySbController.obstacleAvoidance.GetDir();
+            Vector3 dir = (_entitiesData[model].Controller.EnemySbController.SbRouletteDir + dirAvoidance * 0.9f).normalized;
 
             if (dir != Vector3.zero)
             {

@@ -8,6 +8,8 @@ namespace zzzNico.Entities.Enemies.States.States
     [CreateAssetMenu(fileName = "PatrolState", menuName = "_main/States/EnemyStates/PatrolState", order = 0)]
     public class PatrolState : State
     {
+        EnemyModel _enemyModel;
+
         private Dictionary<EntityModel, DataMovementState> _movementDatas = new Dictionary<EntityModel, DataMovementState>();
         private class DataMovementState
         {
@@ -26,7 +28,6 @@ namespace zzzNico.Entities.Enemies.States.States
         
         public override void EnterState(EntityModel model)
         {
-            
             if (!_movementDatas.ContainsKey(model))
             {
                 _movementDatas.Add(model, new DataMovementState(model));
@@ -44,8 +45,10 @@ namespace zzzNico.Entities.Enemies.States.States
             if (distToNextPoint > 0.5f)
             {
                 var dirToNextPoint = (patrolPoints[_movementDatas[model].patrolCount].transform.position - model.transform.position).normalized;
-                
-                model.Move(dirToNextPoint);
+                Vector3 dirAvoidance = _movementDatas[model].enemyModel.Controller.EnemySbController.obstacleAvoidance.GetDir();
+                Vector3 dirToAvoid = (dirToNextPoint + dirAvoidance * 0.9f).normalized;
+
+                model.Move(dirToAvoid);
             }
             else
             {

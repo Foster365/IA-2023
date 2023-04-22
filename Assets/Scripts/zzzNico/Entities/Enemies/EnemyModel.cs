@@ -27,6 +27,7 @@ namespace zzzNico.Entities.Enemies
         private HealthController _healthController;
         private Enemy_Controller _controller;
 
+
         public Enemy_Controller Controller { get => _controller; set => _controller = value; }
 
         private void Awake()
