@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace UnityChan
+namespace unity_chan_.Unity_chan__Model.Scripts
 {
 	public class FaceUpdate : MonoBehaviour
 	{
