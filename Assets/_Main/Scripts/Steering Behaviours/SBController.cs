@@ -5,44 +5,44 @@ using UnityEngine;
 
 namespace _Main.Scripts.Steering_Behaviours
 {
-    public class SBController
+    public class SbController
     {
 
-        EnemyModel enemyModel;
-        PlayerModel target;
+        EnemyModel _enemyModel;
+        PlayerModel _target;
 
         #region Steering Behaviours Variables
         Seek sbSeek;
         Pursuit sbPursuit;
         float pursuitTime;
-        Vector3 sbRouletteDir;
+        ISteeringBehaviour sbRouletteSteering;
 
-        public Vector3 SbRouletteDir { get => sbRouletteDir; set => sbRouletteDir = value; }
+        public ISteeringBehaviour SbRouletteSteeringBh { get => sbRouletteSteering; set => sbRouletteSteering = value; }
         #endregion
 
-        public SBController(EnemyModel _enemyModel, float _pursuitTime)
+        public SbController(EnemyModel _enemyModel, float _pursuitTime)
         {
-            enemyModel = _enemyModel;
-            target = _enemyModel.GetTarget();
+            this._enemyModel = _enemyModel;
+            _target = _enemyModel.GetTarget();
             pursuitTime = _pursuitTime;
             InitializeSB();
         }
 
         void InitializeSB()
         {
-            sbSeek = new Seek(enemyModel.transform, target.transform);
-            sbPursuit = new Pursuit(enemyModel.transform, target, pursuitTime);
+            sbSeek = new Seek(_enemyModel.transform, _target.transform);
+            sbPursuit = new Pursuit(_enemyModel.transform, _target, pursuitTime);
         }
 
         public void GetSeekDir()
         {
-            sbRouletteDir = sbSeek.GetDir();
+            sbRouletteSteering = sbSeek;
             
         }
 
         public void GetPursuitDir()
         {
-            sbRouletteDir = sbSeek.GetDir();
+            sbRouletteSteering = sbSeek;
         }
 
     }

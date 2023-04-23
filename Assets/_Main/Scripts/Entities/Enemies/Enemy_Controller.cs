@@ -12,10 +12,10 @@ namespace _Main.Scripts.Entities.Enemies
         FsmScript _enemyFsm;
         [SerializeField] StateData initState;
         [SerializeField] float sbPursuitTime;
-        SBController enemySbController;
+        SbController enemySbController;
         EnemyRouletteWheel enemyRoulette;
 
-        public SBController EnemySbController { get => enemySbController; set => enemySbController = value; }
+        public SbController EnemySbController { get => enemySbController; set => enemySbController = value; }
         public EnemyRouletteWheel EnemyRoulette { get => enemyRoulette; set => enemyRoulette = value; }
 
         private void Awake()
@@ -25,7 +25,7 @@ namespace _Main.Scripts.Entities.Enemies
         private void Start()
         {
             _enemyFsm = new FsmScript(_model, initState);
-            enemySbController = new SBController(_model, sbPursuitTime);
+            enemySbController = new SbController(_model, sbPursuitTime);
             enemyRoulette = new EnemyRouletteWheel(_model, this);
 
         }

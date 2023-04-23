@@ -34,7 +34,7 @@ namespace _Main.Scripts.Entities
         public abstract StateData[] GetStates();
         public abstract bool IsDead();
         public abstract void Die();
-        public virtual Vector3 GetFoward => transform.forward;
-        public virtual float GetSpeed => _Rb.velocity.magnitude;
+        public abstract Vector3 GetFoward();
+        public abstract float GetSpeed();
     }
 }

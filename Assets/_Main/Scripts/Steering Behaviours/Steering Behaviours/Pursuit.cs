@@ -19,7 +19,7 @@ namespace _Main.Scripts.Steering_Behaviours.Steering_Behaviours
         {
             float distance = Vector3.Distance(_origin.position, _target.transform.position);
 
-            Vector3 point = _target.transform.position + (_target.GetFoward * Mathf.Clamp(_target.GetSpeed * _time, 0, distance));
+            Vector3 point = _target.transform.position + (_target.GetFoward() * Mathf.Clamp(_target.GetSpeed() * _time, 0, 100));
             return (point - _origin.position).normalized;
         }
     }

@@ -40,7 +40,7 @@ namespace _Main.Scripts.Entities.Enemies
             _attackCooldown = data.CooldownToAttack;
             exclamationSing.SetActive(false);
             questionSing.SetActive(false);
-            cooldownAttack = data.CooldownToAttack;
+            cooldownAttack = 0;
             
             _healthController.OnDie += Die;
         }
@@ -127,31 +127,10 @@ namespace _Main.Scripts.Entities.Enemies
         public Vector3 GetLastViewDir() => _lastViewDir;
         public Vector3 GetObstacleAvoidanceDir() => _obstacleAvoidance.GetDir()*multiplier;
 
+        public override Vector3 GetFoward() => transform.forward;
+        
 
-        private void OnDrawGizmos()
-        {
-            Vector3 diff = (playerModel.transform.position + Vector3.up) - (transform.position + Vector3.up);
-            Gizmos.color = Color.blue;
-            
-            float distanceToTarget = diff.magnitude;
-            float angleToTarget = Vector3.Angle(transform.position, diff.normalized);
-            if (distanceToTarget < data.SightRange)
-            {
-                Gizmos.color = Color.red;
-                
-                if(angleToTarget < data.TotalSightDegrees / 2)
-                {
-                    Gizmos.color = Color.cyan;
-                    
-                    if (Physics.Raycast(transform.position + Vector3.up, diff.normalized, data.SightRange, data.TargetLayer))
-                    {
-                        Gizmos.color = Color.yellow;
-                    }
-                }
-            }
-            
-            
-            Gizmos.DrawLine(transform.position + Vector3.up, playerModel.transform.position + Vector3.up);
-        }
+        public override float GetSpeed() => _rb.velocity.magnitude;
+        
     }
 }

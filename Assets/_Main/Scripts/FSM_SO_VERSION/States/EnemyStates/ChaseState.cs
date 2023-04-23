@@ -12,7 +12,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         private class ChaseData
         {
             public EnemyModel Model;
-            public EnemyRouletteWheel Roulette;
         }
         
         
@@ -21,13 +20,12 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         private Dictionary<EntityModel, ChaseData> _entitiesData = new Dictionary<EntityModel, ChaseData>();
         public override void EnterState(EntityModel model)
         {
-            
             _entitiesData.Add(model, new ChaseData());
             
             _entitiesData[model].Model = model as EnemyModel;
             
-            _entitiesData[model].Roulette = _entitiesData[model].Model.Controller.EnemyRoulette;
-            _entitiesData[model].Roulette.RouletteAction();
+            //Activo la ruleta dentro del model
+            _entitiesData[model].Model.Controller.EnemyRoulette.RouletteAction();
 
             _entitiesData[model].Model.exclamationSing.SetActive(true);
             _entitiesData[model].Model.isChasing = true;
@@ -38,11 +36,10 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             
             var steering = _entitiesData[model].Model.Controller.EnemySbController;
             _entitiesData[model].Model.cooldownAttack -= Time.deltaTime;
-            Vector3 dir = (steering.SbRouletteDir).normalized;
-
+            Vector3 dir = (steering.SbRouletteSteeringBh.GetDir()).normalized;
+            
             if (dir != Vector3.zero)
             {
-                Debug.Log("Chasing player");
                 _entitiesData[model].Model.Move(dir);
             }
         }

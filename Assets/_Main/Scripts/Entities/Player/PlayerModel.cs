@@ -39,7 +39,7 @@ namespace _Main.Scripts.Entities.Player
         {
             _view.ResetTriggerAnim("onJump");
             _rigidbody.velocity = Vector3.zero;
-            //_rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+            _rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
             _view.PlayerJumpAnimation();
         }
 
@@ -83,6 +83,12 @@ namespace _Main.Scripts.Entities.Player
         {
             SceneManager.LoadScene("Game Over");
         }
+
+        public override Vector3 GetFoward() => transform.forward;
+        
+
+        public override float GetSpeed() =>_rigidbody.velocity.magnitude;
+        
 
         public override void LookDir(Vector3 dir)
         {

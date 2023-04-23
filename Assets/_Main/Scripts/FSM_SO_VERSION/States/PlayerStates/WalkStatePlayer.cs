@@ -19,7 +19,7 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
             if (dir.magnitude != 0)
             {
                 model.Move(dir);
-                model.LookDir(model.GetFoward);
+                model.LookDir(model.GetFoward());
             }
             
         }
