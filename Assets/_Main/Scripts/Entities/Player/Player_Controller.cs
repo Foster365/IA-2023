@@ -47,9 +47,8 @@ namespace _Main.Scripts.Entities.Player
         }
         void CheckJumpControls()
         {
-            if (Input.GetAxisRaw("Jump") != 0) /*&& _model.IsGrounded*/
+            if (Input.GetKeyDown(KeyCode.Space)) /*&& _model.IsGrounded*/
             {
-                Debug.Log("Jump key pressed");
                 _model.isJumping = true;
                 _model.isIdle = false;
                 _model.isWalking = false;

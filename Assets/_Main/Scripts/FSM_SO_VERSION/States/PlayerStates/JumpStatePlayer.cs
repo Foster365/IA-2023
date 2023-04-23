@@ -7,18 +7,16 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
     [CreateAssetMenu(fileName = "JumpState", menuName = "_main/States/PlayerStates/JumpState", order = 0)]
     public class JumpStatePlayer : State
     {
-        public override void ExecuteState(EntityModel model)
-
+        public override void EnterState(EntityModel model)
         {
-            Debug.Log("Jupstate execute");
+            base.EnterState(model);
+        }
+
+        public override void ExecuteState(EntityModel model)
+        {
             PlayerModel playerModel = model as PlayerModel;
             playerModel.Jump();
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("Is jumping");
-                playerModel.Jump();
-            }
         }
     }
 }

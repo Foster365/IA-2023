@@ -28611,7 +28611,7 @@ BoxCollider:
   m_GameObject: {fileID: 843344114}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 8, y: 8, z: 0.88}
   m_Center: {x: -0.00000023841858, y: 0.0000005076328, z: 1.0333332}
@@ -74229,7 +74229,7 @@ PrefabInstance:
     - target: {fileID: 4835327393588765467, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.6
+      value: -10.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835327393588765467, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
@@ -74239,7 +74239,7 @@ PrefabInstance:
     - target: {fileID: 4835327393588765467, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.96
+      value: 79.4
       objectReference: {fileID: 0}
     - target: {fileID: 4835327393588765467, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
@@ -74284,7 +74284,17 @@ PrefabInstance:
     - target: {fileID: 4835327394134459713, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: jumpForce
-      value: 100
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835327394134459742, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835327394134459742, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139, type: 3}

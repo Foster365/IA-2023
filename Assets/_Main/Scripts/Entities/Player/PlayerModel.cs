@@ -38,14 +38,13 @@ namespace _Main.Scripts.Entities.Player
         public void Jump()
         {
             _view.ResetTriggerAnim("onJump");
-            _rigidbody.velocity = Vector3.zero;
             _rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
             _view.PlayerJumpAnimation();
         }
 
         public bool CheckGround()
         {
-            return _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 10f, groundMask) ? true : false;
+            return Physics.Raycast(transform.position, -Vector3.up, 10f, groundMask) ? true : false;
         }
 
         public override void Move(Vector3 direction)
