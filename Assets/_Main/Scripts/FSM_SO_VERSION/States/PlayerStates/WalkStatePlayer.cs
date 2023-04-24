@@ -1,4 +1,5 @@
 using _Main.Scripts.Entities;
+using _Main.Scripts.Entities.Player;
 using UnityEngine;
 
 namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
@@ -12,20 +13,22 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
             var horizontalInput = model.transform.right * Input.GetAxis("Horizontal");
             var verticalInput = model.transform.forward * Input.GetAxis("Vertical");
 
-            
+
             Vector3 dir = (horizontalInput + verticalInput).normalized;
-            
-            
+
+
             if (dir.magnitude != 0)
             {
-                model.Move(dir);
+                model.Move(dir.normalized);
                 model.LookDir(model.GetFoward());
             }
-            
+
         }
         public override void ExitState(EntityModel model)
         {
-            model.Move(Vector3.zero);
+            PlayerModel playerModel = (PlayerModel)model;
+            playerModel.View.PlayRunAnimation(false);
+            //model.Move(Vector3.zero);
         }
 
     }

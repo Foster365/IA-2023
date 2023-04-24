@@ -12,6 +12,7 @@ namespace _Main.Scripts.Entities.Player
         [SerializeField] private float jumpForce;
         [SerializeField] private float maxLife = 100;
         [SerializeField] private LayerMask groundMask;
+        [SerializeField] float groundCheckLength;
 
 
         private Player_View _view;
@@ -23,6 +24,7 @@ namespace _Main.Scripts.Entities.Player
         Transform _transform;
 
         public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
+        public Player_View View { get => _view; set => _view = value; }
 
         void Awake()
         {
@@ -37,25 +39,38 @@ namespace _Main.Scripts.Entities.Player
 
         public void Jump()
         {
-            _view.ResetTriggerAnim("onJump");
-            _rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
-            _view.PlayerJumpAnimation();
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.AddForce(5 * Vector3.up, ForceMode.Impulse);
         }
 
         public bool CheckGround()
         {
-            return Physics.Raycast(transform.position, -Vector3.up, 10f, groundMask) ? true : false;
+            _isGrounded = Physics.CheckSphere(transform.position, groundCheckLength, groundMask);
+            View.PlayerGroundedAnimation(_isGrounded);
+            View.PlayerFallingAnimation(!_isGrounded);
+            //if (_isGrounded)
+            //{
+            //    //View.PlayerGroundedAnimation(true);
+            //    View.PlayerJumpAnimation(false);
+            //    //View.PlayerFallingAnimation(false);
+            //}
+            //else
+            //{
+            //    //View.PlayerGroundedAnimation(false);
+            //    //View.PlayerFallingAnimation(true);
+            //}
+            return _isGrounded;
         }
 
         public override void Move(Vector3 direction)
         {
             direction.y = 0;
+            _view.PlayRunAnimation(true);
             _rigidbody.velocity = direction * (maxSpeed * Time.deltaTime);
 
             if (direction.magnitude != 0)
                 LookDir(direction);
-           
-            _view.PlayRunAnimation(this);
+
         }
 
         public override void GetDamage(int damage)
@@ -84,10 +99,10 @@ namespace _Main.Scripts.Entities.Player
         }
 
         public override Vector3 GetFoward() => transform.forward;
-        
 
-        public override float GetSpeed() =>_rigidbody.velocity.magnitude;
-        
+
+        public override float GetSpeed() => _rigidbody.velocity.magnitude;
+
 
         public override void LookDir(Vector3 dir)
         {
@@ -100,7 +115,7 @@ namespace _Main.Scripts.Entities.Player
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawRay(transform.position, -transform.up * .1f);
+            Gizmos.DrawRay(transform.position, Vector3.down * groundCheckLength);
         }
 
     }

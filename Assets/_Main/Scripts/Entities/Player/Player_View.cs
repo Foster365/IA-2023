@@ -10,14 +10,28 @@ namespace _Main.Scripts.Entities.Player
             _animator = GetComponent<Animator>();
         }
 
-        public void PlayRunAnimation(PlayerModel model)
+        public void PlayRunAnimation(bool _isMoving)
         {
-            _animator.SetFloat("Vel", model.GetRigidbody().velocity.magnitude);
+            _animator.SetBool("isMoving", _isMoving);
+            //_animator.SetFloat("Vel", model.GetRigidbody().velocity.magnitude);
         }
 
-        public void PlayerJumpAnimation()
+        public void PlayerJumpAnimation(bool _isJumping)
         {
-            _animator.SetTrigger("onJump");
+            _animator.SetBool("isJumping", _isJumping);
+            //_animator.SetTrigger("onJump");
+        }
+
+        public void PlayerGroundedAnimation(bool _isGrounded)
+        {
+            _animator.SetBool("isGrounded", _isGrounded);
+            //_animator.SetTrigger("onJump");
+        }
+
+        public void PlayerFallingAnimation(bool _isFalling)
+        {
+            _animator.SetBool("isFalling", _isFalling);
+            //_animator.SetTrigger("onJump");
         }
 
         public void ResetTriggerAnim(string _animName)

@@ -21,16 +21,19 @@ namespace _Main.Scripts.Entities.Player
         private void Update()
         {
             _model.CheckGround();
+            Debug.Log("Is grounded?" + _model.CheckGround());
 
             playerFSM.UpdateState();
-
-            CheckMovementControls();
-            CheckJumpControls();
+            if (_model.IsGrounded)
+            {
+                CheckMovementControls();
+                CheckJumpControls();
+            }
         }
         void CheckMovementControls()
         {
-            var horizontalInput = Input.GetAxisRaw("Horizontal");
-            var verticalInput = Input.GetAxisRaw("Vertical");
+            var horizontalInput = Input.GetAxis("Horizontal");
+            var verticalInput = Input.GetAxis("Vertical");
 
             if (horizontalInput != 0 || verticalInput != 0)
             {
@@ -47,7 +50,7 @@ namespace _Main.Scripts.Entities.Player
         }
         void CheckJumpControls()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) /*&& _model.IsGrounded*/
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 _model.isJumping = true;
                 _model.isIdle = false;
