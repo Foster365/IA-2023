@@ -27,7 +27,7 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             _allAttackDatas[model].EnemyModel = (EnemyModel)model;
             _allAttackDatas[model].Data = _allAttackDatas[model].EnemyModel.GetData();
             _allAttackDatas[model].TargetLayer = _allAttackDatas[model].EnemyModel.GetTarget().gameObject.layer;
-            _allAttackDatas[model].Dir = (_allAttackDatas[model].EnemyModel.GetTarget().transform.position - model.transform.position).normalized;
+            
             
             model.isAttacking = true;
             
@@ -35,6 +35,8 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
 
         public override void ExecuteState(EntityModel model)
         {
+            _allAttackDatas[model].Dir = (_allAttackDatas[model].EnemyModel.GetTarget().transform.position - model.transform.position).normalized;
+
             if (Physics.Raycast(model.transform.position, _allAttackDatas[model].Dir,
                     _allAttackDatas[model].Data.DistanceToAttack, _allAttackDatas[model].TargetLayer))
             {
@@ -51,5 +53,7 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             
             model.isAttacking = false;
         }
+        
+        
     }
 }

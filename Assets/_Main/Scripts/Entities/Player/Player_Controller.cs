@@ -21,7 +21,6 @@ namespace _Main.Scripts.Entities.Player
         private void Update()
         {
             _model.CheckGround();
-            Debug.Log("Is grounded?" + _model.CheckGround());
 
             playerFSM.UpdateState();
             if (_model.IsGrounded)

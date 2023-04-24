@@ -102,10 +102,7 @@ namespace _Main.Scripts.Entities.Player
 
         public override Rigidbody GetRigidbody() => _rigidbody;
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawRay(transform.position, Vector3.down * groundCheckLength);
-        }
+      
 
     }
 }

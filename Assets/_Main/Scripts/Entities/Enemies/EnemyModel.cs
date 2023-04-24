@@ -1,4 +1,5 @@
-﻿using _Main.Scripts.Entities.Enemies.Data;
+﻿using System;
+using _Main.Scripts.Entities.Enemies.Data;
 using _Main.Scripts.Entities.Player;
 using _Main.Scripts.FSM_SO_VERSION;
 using _Main.Scripts.Steering_Behaviours.Steering_Behaviours;
@@ -28,6 +29,7 @@ namespace _Main.Scripts.Entities.Enemies
 
         public GameObject exclamationSing;
         public GameObject questionSing;
+        
         public float cooldownAttack;
         private void Awake()
         {
@@ -133,6 +135,7 @@ namespace _Main.Scripts.Entities.Enemies
 
 
         public override float GetSpeed() => _rb.velocity.magnitude;
+
 
     }
 }

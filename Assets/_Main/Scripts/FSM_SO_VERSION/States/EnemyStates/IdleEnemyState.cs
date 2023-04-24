@@ -14,7 +14,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         public override void ExecuteState(EntityModel model)
         {
 
-            Debug.Log($"Idle");
         }
 
         public override void ExitState(EntityModel model)
