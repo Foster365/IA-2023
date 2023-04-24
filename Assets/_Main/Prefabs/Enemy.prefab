@@ -968,19 +968,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &5471824115157662970
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173473315618994277}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.143209, z: 1.4507093}
-  m_Center: {x: 0, y: 0.5641918, z: -0.065142184}
 --- !u!114 &4099102061468321870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,6 +1030,19 @@ MonoBehaviour:
   exclamationSing: {fileID: 5752321949085278169}
   questionSing: {fileID: 5752321947384997591}
   cooldownAttack: 0
+--- !u!135 &2450020503188211402
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173473315618994277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.55
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!4 &179983116976401077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4906828391645816, guid: 38efdaadbfe1d624bbee439cb02e7661,

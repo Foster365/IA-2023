@@ -7118,6 +7118,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 79.92
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7221,8 +7231,38 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1779835641}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1093606813}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 251789780}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1372904951}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!4 &261475751 stripped
@@ -16134,6 +16174,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 83.65
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16182,7 +16232,7 @@ PrefabInstance:
     - target: {fileID: 5752321947879350820, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.2
+      value: 36.200005
       objectReference: {fileID: 0}
     - target: {fileID: 5752321947879350820, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
@@ -16237,8 +16287,53 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1128076789}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1700095682}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 146458194}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 941968351}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 1700095682}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 146458194}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 941968351}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!4 &519804161 stripped
@@ -18155,7 +18250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &570404515
 Transform:
   m_ObjectHideFlags: 0
@@ -35970,6 +36065,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 81.83
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36073,8 +36178,38 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 474435903}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 287282101}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 646104511}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1610577704}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!4 &1076721991 stripped
@@ -42975,6 +43110,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 79.57
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43078,8 +43223,38 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1874587500}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1180116913}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1666090529}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 775216074}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!4 &1315391025 stripped
@@ -54698,7 +54873,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.8
+  m_fontSize: 19.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -55035,6 +55210,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 90.22
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55138,8 +55323,38 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1786570029}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1282369699}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 170816844}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1530777982}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!4 &1639021731 stripped
@@ -56762,6 +56977,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 94.96
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56865,8 +57090,38 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1617503637}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1001636345}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 46788545}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 492468514}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!4 &1697379483 stripped
@@ -74312,6 +74567,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 79.71
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -74415,8 +74680,38 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1673048483}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 395981736}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 766483885}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 217483626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!4 &2132659294 stripped
@@ -75273,6 +75568,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 179983116976401077, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 79.53
+      objectReference: {fileID: 0}
     - target: {fileID: 5214855183370768091, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -75326,7 +75631,7 @@ PrefabInstance:
     - target: {fileID: 5752321947879350820, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5752321947879350820, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
@@ -75336,7 +75641,7 @@ PrefabInstance:
     - target: {fileID: 5752321947879350820, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.087282
+      value: 9.58
       objectReference: {fileID: 0}
     - target: {fileID: 5752321947879350820, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
@@ -75381,8 +75686,33 @@ PrefabInstance:
     - target: {fileID: 5752321947879350821, guid: d4426f94fc191a3428649275a0e536ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1261581711}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 566731364}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1713692595}
+    - target: {fileID: 8050575227763077189, guid: d4426f94fc191a3428649275a0e536ef,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 437162171}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4426f94fc191a3428649275a0e536ef, type: 3}
 --- !u!1001 &6546864431694755932
