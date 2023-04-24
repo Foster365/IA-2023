@@ -1,4 +1,5 @@
-﻿using _Main.Scripts.FSM_SO_VERSION;
+﻿using System;
+using _Main.Scripts.FSM_SO_VERSION;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

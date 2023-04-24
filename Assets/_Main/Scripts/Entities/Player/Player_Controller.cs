@@ -50,7 +50,7 @@ namespace _Main.Scripts.Entities.Player
         }
         void CheckJumpControls()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && _model.CheckGround()) /*&& _model.IsGrounded*/
             {
                 _model.isJumping = true;
                 _model.isIdle = false;

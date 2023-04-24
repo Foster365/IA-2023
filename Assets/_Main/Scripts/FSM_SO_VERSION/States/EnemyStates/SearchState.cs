@@ -49,9 +49,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
 
         public override void ExecuteState(EntityModel model)
         {
-            _searchDatas[model].Model.EnemyView.PlayRunAnimation(0);
-            Debug.Log($"Search");
-            _searchDatas[model].Model.GetRigidbody().velocity = Vector3.zero;
             _searchDatas[model].Timer -= Time.deltaTime;
             if (_searchDatas[model].Timer > 0)
             {

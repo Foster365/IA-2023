@@ -38,11 +38,8 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             if (Physics.Raycast(model.transform.position, _allAttackDatas[model].Dir,
                     _allAttackDatas[model].Data.DistanceToAttack, _allAttackDatas[model].TargetLayer))
             {
-                
-                Debug.Log($"Damage");
                 _allAttackDatas[model].EnemyModel.GetTarget().GetDamage(10);
             }
-            Debug.Log($"Attack");
         }
 
         public override void ExitState(EntityModel model)
