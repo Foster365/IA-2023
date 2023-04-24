@@ -83,7 +83,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         public override void ExitState(EntityModel model)
         {
             model.isPatrolling = false;
-            model.Move(Vector3.zero);
         }
     }
 

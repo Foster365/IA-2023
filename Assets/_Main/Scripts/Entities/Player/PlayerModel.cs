@@ -1,4 +1,5 @@
-﻿using _Main.Scripts.FSM_SO_VERSION;
+﻿using System;
+using _Main.Scripts.FSM_SO_VERSION;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -44,12 +45,12 @@ namespace _Main.Scripts.Entities.Player
 
         public bool CheckGround()
         {
-            return Physics.Raycast(transform.position, -Vector3.up, 10f, groundMask) ? true : false;
+            Debug.Log(Physics.Raycast(transform.position, -Vector3.up, 10f, groundMask));
+            return Physics.Raycast(transform.position + Vector3.up, Vector3.down, 10f, groundMask);
         }
 
         public override void Move(Vector3 direction)
         {
-            direction.y = 0;
             _rigidbody.velocity = direction * (maxSpeed * Time.deltaTime);
 
             if (direction.magnitude != 0)
@@ -97,11 +98,6 @@ namespace _Main.Scripts.Entities.Player
         }
 
         public override Rigidbody GetRigidbody() => _rigidbody;
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawRay(transform.position, -transform.up * .1f);
-        }
 
     }
 }

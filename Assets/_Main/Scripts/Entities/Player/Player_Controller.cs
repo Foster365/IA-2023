@@ -20,7 +20,6 @@ namespace _Main.Scripts.Entities.Player
         }
         private void Update()
         {
-            _model.CheckGround();
 
             playerFSM.UpdateState();
 
@@ -47,7 +46,7 @@ namespace _Main.Scripts.Entities.Player
         }
         void CheckJumpControls()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) /*&& _model.IsGrounded*/
+            if (Input.GetKeyDown(KeyCode.Space) && _model.CheckGround()) /*&& _model.IsGrounded*/
             {
                 _model.isJumping = true;
                 _model.isIdle = false;

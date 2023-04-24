@@ -23,10 +23,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
             }
             
         }
-        public override void ExitState(EntityModel model)
-        {
-            model.Move(Vector3.zero);
-        }
 
     }
 }

@@ -9,13 +9,13 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
     {
         public override void EnterState(EntityModel model)
         {
-            base.EnterState(model);
+            PlayerModel playerModel = model as PlayerModel;
+            playerModel.Jump();
         }
 
         public override void ExecuteState(EntityModel model)
         {
-            PlayerModel playerModel = model as PlayerModel;
-            playerModel.Jump();
+            
 
         }
     }

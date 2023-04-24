@@ -74322,12 +74322,17 @@ PrefabInstance:
     - target: {fileID: 4835327394134459713, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4835327394134459742, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: m_Drag
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835327394134459742, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4835327394134459742, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
