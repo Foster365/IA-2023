@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using _Main.Scripts.Entities;
+﻿using _Main.Scripts.Entities;
 using _Main.Scripts.Entities.Enemies;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -24,10 +24,10 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
                 patrolCount = 0;
             }
         }
-        
+
         public override void EnterState(EntityModel model)
         {
-            
+
             if (!_movementDatas.ContainsKey(model))
             {
                 _movementDatas.Add(model, new DataMovementState(model));
@@ -39,15 +39,17 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         public override void ExecuteState(EntityModel model)
         {
             var patrolPoints = _movementDatas[model].enemyModel.GetPatrolPoints();
-            
+
             var distToNextPoint = Vector3.Distance(patrolPoints[_movementDatas[model].patrolCount].transform.position, model.transform.position);
-            
+
             if (distToNextPoint > 1f)
             {
                 var dirToNextPoint = (patrolPoints[_movementDatas[model].patrolCount].transform.position - model.transform.position).normalized;
-                
+
                 model.Move(dirToNextPoint);
             }
+            else if (_movementDatas[model].enemyModel.transform.position == patrolPoints[_movementDatas[model].patrolCount].transform.position)
+                Debug.Log("BUENAS");
             else
             {
                 model.GetRigidbody().velocity = Vector3.zero;
@@ -55,11 +57,11 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
                 if (_movementDatas[model].timer <= 0)
                 {
                     _movementDatas[model].patrolCount++;
-                    
+
                     _movementDatas[model].timer = _movementDatas[model].enemyModel.GetData().RestPatrolTime;
                 }
             }
-            
+
             if (_movementDatas[model].patrolCount >= patrolPoints.Length)
                 _movementDatas[model].patrolCount = 0;
         }
