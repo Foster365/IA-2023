@@ -13,7 +13,7 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
 
         public override void ExecuteState(EntityModel model)
         {
-            
+
             Debug.Log($"Idle");
         }
 
@@ -22,4 +22,4 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             model.isIdle = false;
         }
     }
-} 
+}

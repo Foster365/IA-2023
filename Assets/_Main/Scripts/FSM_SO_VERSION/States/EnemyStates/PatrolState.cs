@@ -48,11 +48,8 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
 
                 model.Move(dirToNextPoint);
             }
-            else if (_movementDatas[model].enemyModel.transform.position == patrolPoints[_movementDatas[model].patrolCount].transform.position)
-                Debug.Log("BUENAS");
             else
             {
-                model.GetRigidbody().velocity = Vector3.zero;
                 _movementDatas[model].timer -= Time.deltaTime;
                 if (_movementDatas[model].timer <= 0)
                 {
@@ -69,7 +66,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         public override void ExitState(EntityModel model)
         {
             model.isPatrolling = false;
-            model.Move(Vector3.zero);
         }
     }
 
