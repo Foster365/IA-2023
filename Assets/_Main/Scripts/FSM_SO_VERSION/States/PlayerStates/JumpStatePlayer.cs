@@ -13,13 +13,11 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
         {
             playerModel = model as PlayerModel;
             playerModel.View.PlayerJumpAnimation(true);
+            playerModel.Jump();
         }
 
         public override void ExecuteState(EntityModel model)
         {
-            playerModel.GetRigidbody().velocity = Vector3.zero;
-            playerModel.Jump();
-
         }
         public override void ExitState(EntityModel model)
         {

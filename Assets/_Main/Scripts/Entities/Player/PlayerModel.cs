@@ -1,5 +1,5 @@
-﻿using System;
-using _Main.Scripts.FSM_SO_VERSION;
+﻿using _Main.Scripts.FSM_SO_VERSION;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,8 +40,7 @@ namespace _Main.Scripts.Entities.Player
 
         public void Jump()
         {
-            _rigidbody.velocity = Vector3.zero;
-            _rigidbody.AddForce(5 * Vector3.up, ForceMode.Impulse);
+            _rigidbody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
         }
 
         public bool CheckGround()
@@ -49,17 +48,6 @@ namespace _Main.Scripts.Entities.Player
             _isGrounded = Physics.CheckSphere(transform.position, groundCheckLength, groundMask);
             View.PlayerGroundedAnimation(_isGrounded);
             View.PlayerFallingAnimation(!_isGrounded);
-            //if (_isGrounded)
-            //{
-            //    //View.PlayerGroundedAnimation(true);
-            //    View.PlayerJumpAnimation(false);
-            //    //View.PlayerFallingAnimation(false);
-            //}
-            //else
-            //{
-            //    //View.PlayerGroundedAnimation(false);
-            //    //View.PlayerFallingAnimation(true);
-            //}
             return _isGrounded;
         }
 

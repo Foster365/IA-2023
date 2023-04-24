@@ -15,11 +15,11 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
 
 
             Vector3 dir = (horizontalInput + verticalInput).normalized;
+            Vector3 wantedDir = new Vector3(dir.x, model.GetRigidbody().velocity.y, dir.z).normalized;
 
-
-            if (dir.magnitude != 0)
+            if (wantedDir.magnitude != 0)
             {
-                model.Move(dir.normalized);
+                model.Move(wantedDir.normalized);
                 model.LookDir(model.GetFoward());
             }
 

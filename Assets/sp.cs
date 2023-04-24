@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class sp : MonoBehaviour
 {
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(transform.position, 1f);
+        Gizmos.DrawSphere(transform.position, 1f);
     }
 }
