@@ -12,16 +12,18 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         private Dictionary<EntityModel, DataMovementState> _movementDatas = new Dictionary<EntityModel, DataMovementState>();
         private class DataMovementState
         {
-            public float timer;
-            public EnemyModel enemyModel;
-            public int patrolCount;
+            public float Timer;
+            public EnemyModel EnemyModel;
+            public int PatrolCount;
+            public bool TravelBackwards;
 
             public DataMovementState(EntityModel entityModel)
             {
-                enemyModel = (EnemyModel)entityModel;
-                Assert.IsNotNull(enemyModel);
-                timer = enemyModel.GetData().RestPatrolTime;
-                patrolCount = 0;
+                EnemyModel = (EnemyModel)entityModel;
+                Assert.IsNotNull(EnemyModel);
+                Timer = EnemyModel.GetData().RestPatrolTime;
+                PatrolCount = 0;
+                TravelBackwards = false;
             }
         }
         
@@ -38,30 +40,44 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
 
         public override void ExecuteState(EntityModel model)
         {
-            var patrolPoints = _movementDatas[model].enemyModel.GetPatrolPoints();
+            var patrolPoints = _movementDatas[model].EnemyModel.GetPatrolPoints();
             
-            var distToNextPoint = Vector3.Distance(patrolPoints[_movementDatas[model].patrolCount].transform.position, model.transform.position);
+            var distToNextPoint = Vector3.Distance(patrolPoints[_movementDatas[model].PatrolCount].transform.position, model.transform.position);
             
             if (distToNextPoint > 1f)
             {
-                var dirToNextPoint = (patrolPoints[_movementDatas[model].patrolCount].transform.position - model.transform.position).normalized;
+                var dirToNextPoint = (patrolPoints[_movementDatas[model].PatrolCount].transform.position - model.transform.position).normalized;
                 
                 model.Move(dirToNextPoint);
             }
             else
             {
                 model.GetRigidbody().velocity = Vector3.zero;
-                _movementDatas[model].timer -= Time.deltaTime;
-                if (_movementDatas[model].timer <= 0)
+                _movementDatas[model].Timer -= Time.deltaTime;
+                if (_movementDatas[model].Timer <= 0 && !_movementDatas[model].TravelBackwards)
                 {
-                    _movementDatas[model].patrolCount++;
+                    _movementDatas[model].PatrolCount++;
                     
-                    _movementDatas[model].timer = _movementDatas[model].enemyModel.GetData().RestPatrolTime;
+                    _movementDatas[model].Timer = _movementDatas[model].EnemyModel.GetData().RestPatrolTime;
+                }
+                else if (_movementDatas[model].Timer <= 0 && _movementDatas[model].TravelBackwards)
+                {
+                    
+                    _movementDatas[model].PatrolCount--;
+                    
+                    _movementDatas[model].Timer = _movementDatas[model].EnemyModel.GetData().RestPatrolTime;
                 }
             }
-            
-            if (_movementDatas[model].patrolCount >= patrolPoints.Length)
-                _movementDatas[model].patrolCount = 0;
+
+            if (_movementDatas[model].PatrolCount >= patrolPoints.Length -1)
+            {
+                _movementDatas[model].TravelBackwards = true;
+
+            }
+            else if (_movementDatas[model].PatrolCount <= 0)
+            {
+                _movementDatas[model].TravelBackwards = false;
+            }
         }
 
         public override void ExitState(EntityModel model)

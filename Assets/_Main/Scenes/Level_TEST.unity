@@ -1264,6 +1264,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 35069081}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &36006797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eaf645a9b6b38d441ad0ddc67b4e228f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1826627313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &41346558
 GameObject:
   m_ObjectHideFlags: 0
@@ -44452,6 +44458,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354602576}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1355503664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b32f3730180a2c34289e0bd9b6a6a503,
+    type: 3}
+  m_PrefabInstance: {fileID: 936674094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1355503667
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355503664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5974739, y: 1.298742, z: 0.9555312}
+  m_Center: {x: 0.000000119209254, y: 0.6493689, z: -0.0000006109476}
 --- !u!1 &1358767586
 GameObject:
   m_ObjectHideFlags: 0
@@ -54278,7 +54303,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.45
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -60477,6 +60502,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1826627313}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1826627317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36006797}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.505766, y: 1.603614, z: 2.6244235}
+  m_Center: {x: 0.00000011920929, y: 0.7862864, z: -0.0000004172325}
 --- !u!1 &1827941398
 GameObject:
   m_ObjectHideFlags: 0
@@ -74239,7 +74277,7 @@ PrefabInstance:
     - target: {fileID: 4835327393588765467, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.4
+      value: 83.13
       objectReference: {fileID: 0}
     - target: {fileID: 4835327393588765467, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
@@ -74279,12 +74317,12 @@ PrefabInstance:
     - target: {fileID: 4835327394134459713, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: maxSpeed
-      value: 500
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 4835327394134459713, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4835327394134459742, guid: 4ff1ebd4ed7a8c84fbb2910d18a4b139,
         type: 3}

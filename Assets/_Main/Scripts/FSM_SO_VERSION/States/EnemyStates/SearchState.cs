@@ -47,7 +47,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
 
         public override void ExecuteState(EntityModel model)
         {
-            Debug.Log($"Search");
             _searchDatas[model].Timer -= Time.deltaTime;
             if (_searchDatas[model].Timer > 0)
             {
