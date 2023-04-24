@@ -28,14 +28,19 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             Dictionary<Vector3, int> dirChances = new Dictionary<Vector3, int>();
             Vector3 opositeDir = Quaternion.AngleAxis(90f, Vector3.one) * lastViewDir;
 
-            _searchDatas[model].Model.EnemyView.PlayRunAnimation(0);
-
+            //En base a la ultima direccion en la que vi al jugador
+            //guardo 4 posibilidades:
+            
+            //La verdadera ultima direccion
             dirChances.Add(lastViewDir, 50);
+            
+            //Y 3 mas que son opuestas o perpendiculares
             dirChances.Add(lastViewDir * -1, 20);
             dirChances.Add(opositeDir, 20);
             dirChances.Add(opositeDir * -1, 20);
 
             var roulette = new Roulette();
+            //Metemos todas las direcciones en una ruleta y la activamos
             _searchDatas[model].Dir = roulette.Run(dirChances);
 
             _searchDatas[model].Timer = myModel.GetData().TimeForSearchPlayer;

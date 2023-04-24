@@ -4,15 +4,15 @@ namespace _Main.Scripts.Utilities
 {
     public class GameManager : MonoBehaviour
     {
-        Timer timer;
+        private Timer _timer;
 
         private void Awake()
         {
-            timer = GetComponent<Timer>();
+            _timer = GetComponent<Timer>();
         }
         private void Update()
         {
-            timer.RunTimer();
+            _timer.RunTimer();
         }
     }
 }

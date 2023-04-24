@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace _Main.Scripts.Entities.Player
 {
-    public class Player_Controller : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
-        FsmScript playerFSM;
         [SerializeField] StateData initialState;
+        
+        private FsmScript _playerFsm;
         private StateData _currentState;
         private PlayerModel _model;
 
@@ -16,13 +17,13 @@ namespace _Main.Scripts.Entities.Player
         }
         private void Start()
         {
-            playerFSM = new FsmScript(_model, initialState);
+            _playerFsm = new FsmScript(_model, initialState);
         }
         private void Update()
         {
             _model.CheckGround();
+            _playerFsm.UpdateState();
 
-            playerFSM.UpdateState();
             if (_model.IsGrounded)
             {
                 CheckMovementControls();
@@ -49,24 +50,12 @@ namespace _Main.Scripts.Entities.Player
         }
         void CheckJumpControls()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _model.CheckGround()) /*&& _model.IsGrounded*/
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 _model.isJumping = true;
                 _model.isIdle = false;
                 _model.isWalking = false;
             }
-        }
-
-        public void InitializeState(StateData nextState)
-        {
-            _currentState = nextState;
-
-            _currentState.State.EnterState(_model);
-        }
-
-        public void ExitCurrentState()
-        {
-            _currentState.State.ExitState(_model);
         }
     }
 }

@@ -6,7 +6,6 @@ namespace _Main.Scripts.Utilities
     {
         [Header("References")]
         public Transform orientation, player, playerObj;
-        public Rigidbody playerRb;
         public float rotationSpeed;
 
         private void Start()

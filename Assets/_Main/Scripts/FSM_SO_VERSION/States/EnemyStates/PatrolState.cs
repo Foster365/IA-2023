@@ -20,7 +20,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             public DataMovementState(EntityModel entityModel)
             {
                 EnemyModel = (EnemyModel)entityModel;
-                Assert.IsNotNull(EnemyModel);
                 Timer = EnemyModel.GetData().RestPatrolTime;
                 PatrolCount = 0;
                 TravelBackwards = false;
@@ -44,6 +43,7 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             
             var distToNextPoint = Vector3.Distance(patrolPoints[_movementDatas[model].PatrolCount].transform.position, model.transform.position);
             
+            //Si estoy lejos del punto, me muevo hacia el
             if (distToNextPoint > 1f)
             {
                 var dirToNextPoint = (patrolPoints[_movementDatas[model].PatrolCount].transform.position - model.transform.position).normalized;
@@ -52,8 +52,13 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
             }
             else
             {
+                //Si ya estoy cerca, me quedo quiero un tiempo X
+                
                 model.GetRigidbody().velocity = Vector3.zero;
                 _movementDatas[model].Timer -= Time.deltaTime;
+                
+                //Si ese tiempo X ya paso, chequeo si tengo que seguir el mismo recorrido
+                //O tengo que cambiar el sentido de la patrulla
                 if (_movementDatas[model].Timer <= 0 && !_movementDatas[model].TravelBackwards)
                 {
                     _movementDatas[model].PatrolCount++;
@@ -69,6 +74,8 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
                 }
             }
 
+            //Chequeo si tengo que cambiar el sentido de la patrulla en base al count actual
+            //si ya llegue al final, cambio el sentido
             if (_movementDatas[model].PatrolCount >= patrolPoints.Length -1)
             {
                 _movementDatas[model].TravelBackwards = true;

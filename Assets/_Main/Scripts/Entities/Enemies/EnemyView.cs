@@ -14,7 +14,6 @@ namespace _Main.Scripts.Entities.Enemies
 
         public void PlayRunAnimation(float velocity)
         {
-            
             _animator.SetFloat("Vel", velocity);
         }
     }

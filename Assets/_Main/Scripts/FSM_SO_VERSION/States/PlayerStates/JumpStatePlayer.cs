@@ -8,12 +8,12 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
     [CreateAssetMenu(fileName = "JumpState", menuName = "_main/States/PlayerStates/JumpState", order = 0)]
     public class JumpStatePlayer : State
     {
-        PlayerModel playerModel;
+        private PlayerModel _playerModel;
         public override void EnterState(EntityModel model)
         {
-            playerModel = model as PlayerModel;
-            playerModel.View.PlayerJumpAnimation(true);
-            playerModel.Jump();
+            _playerModel = model as PlayerModel;
+            _playerModel.View.PlayerJumpAnimation(true);
+            _playerModel.Jump();
         }
 
         public override void ExecuteState(EntityModel model)
@@ -21,7 +21,7 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
         }
         public override void ExitState(EntityModel model)
         {
-            playerModel.View.PlayerJumpAnimation(false);
+            _playerModel.View.PlayerJumpAnimation(false);
         }
     }
 }

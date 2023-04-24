@@ -4,19 +4,18 @@ namespace _Main.Scripts.Steering_Behaviours.Steering_Behaviours
 {
     public class Seek : ISteeringBehaviour
     {
-
-        Transform origin;
-        Transform target;
+        private Transform _origin;
+        private Transform _target;
 
         public Seek(Transform origin, Transform target)
         {
-            this.origin = origin;
-            this.target = target;
+            _origin = origin;
+            _target = target;
         }
 
         public Vector3 GetDir()
         {
-            return (target.position - origin.position).normalized;
+            return (_target.position - _origin.position).normalized;
         }
 
     }

@@ -3,9 +3,9 @@
     public class QuestionNode : INode
     {
         public delegate bool myDelegate();
-        myDelegate _question;
-        INode _trueNode;
-        INode _falseNode;
+        private myDelegate _question;
+        private INode _trueNode;
+        private INode _falseNode;
         public QuestionNode(myDelegate question, INode tN, INode fN)
         {
             _question = question;

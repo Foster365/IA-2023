@@ -17,14 +17,12 @@ namespace _Main.Scripts.Entities.Enemies
         EnemyView _enemyView;
 
 
-        private float _attackCooldown;
-        ISteeringBehaviour _sBehaviour;
         private Rigidbody _rb;
         private HealthController _healthController;
-        private Enemy_Controller _controller;
+        private EnemyController _controller;
         private ObstacleAvoidance _obstacleAvoidance;
 
-        public Enemy_Controller Controller { get => _controller; set => _controller = value; }
+        public EnemyController Controller { get => _controller; set => _controller = value; }
         public EnemyView EnemyView { get => _enemyView; set => _enemyView = value; }
 
         public GameObject exclamationSing;
@@ -35,13 +33,11 @@ namespace _Main.Scripts.Entities.Enemies
         {
 
             _rb = GetComponent<Rigidbody>();
-            _sBehaviour = GetComponent<ISteeringBehaviour>();
             _healthController = new HealthController(data.MaxLife);
             _enemyView = GetComponent<EnemyView>();
 
-            _controller = GetComponent<Enemy_Controller>();
+            _controller = GetComponent<EnemyController>();
             _obstacleAvoidance = new ObstacleAvoidance(transform, 4, 10, data.TotalSightDegrees, obsMask);
-            _attackCooldown = data.CooldownToAttack;
             exclamationSing.SetActive(false);
             questionSing.SetActive(false);
             cooldownAttack = 0;
@@ -54,6 +50,7 @@ namespace _Main.Scripts.Entities.Enemies
             direction.y = 0;
             direction += _obstacleAvoidance.GetDir() * multiplier;
             _rb.velocity = direction.normalized * (data.MovementSpeed * Time.deltaTime);
+            
             transform.forward = Vector3.Lerp(transform.forward, direction, rotSpeed * Time.deltaTime);
             _enemyView.PlayRunAnimation(_rb.velocity.magnitude);
         }
@@ -116,10 +113,6 @@ namespace _Main.Scripts.Entities.Enemies
             }
         }
 
-        public bool IsIdle()
-        {
-            return !isPatrolling && !isAllert && !isChasing && !isAttacking;
-        }
         public PlayerModel GetTarget() => playerModel;
         public EnemyData GetData() => data;
         public override StateData[] GetStates() => data.FsmStates;
@@ -129,7 +122,6 @@ namespace _Main.Scripts.Entities.Enemies
 
         public void SetLastViewDir(Vector3 dir) => _lastViewDir = dir;
         public Vector3 GetLastViewDir() => _lastViewDir;
-        public Vector3 GetObstacleAvoidanceDir() => _obstacleAvoidance.GetDir() * multiplier;
 
         public override Vector3 GetFoward() => transform.forward;
 

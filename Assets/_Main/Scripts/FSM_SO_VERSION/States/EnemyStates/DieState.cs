@@ -10,7 +10,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.EnemyStates
         public override void EnterState(EntityModel model)
         {
             model.isDead = true;
-            SceneManager.LoadScene("Game Over");
         }
 
         public override void ExecuteState(EntityModel model)

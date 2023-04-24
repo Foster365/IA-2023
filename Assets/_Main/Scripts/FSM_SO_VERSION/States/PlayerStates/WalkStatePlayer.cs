@@ -14,8 +14,8 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
             var verticalInput = model.transform.forward * Input.GetAxis("Vertical");
 
 
-            Vector3 dir = (horizontalInput + verticalInput).normalized;
-            Vector3 wantedDir = new Vector3(dir.x, model.GetRigidbody().velocity.y, dir.z).normalized;
+            Vector3 inputDir = (horizontalInput + verticalInput).normalized;
+            Vector3 wantedDir = new Vector3(inputDir.x, model.GetRigidbody().velocity.y, inputDir.z).normalized;
 
             if (wantedDir.magnitude != 0)
             {
@@ -28,7 +28,6 @@ namespace _Main.Scripts.FSM_SO_VERSION.States.PlayerStates
         {
             PlayerModel playerModel = (PlayerModel)model;
             playerModel.View.PlayRunAnimation(false);
-            //model.Move(Vector3.zero);
         }
 
     }

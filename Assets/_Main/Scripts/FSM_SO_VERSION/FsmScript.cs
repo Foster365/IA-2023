@@ -4,17 +4,15 @@ namespace _Main.Scripts.FSM_SO_VERSION
 {
     public class FsmScript
     {
-        private StateData[] _allStateDatas;
         private StateData _currentState;
         readonly EntityModel _entityModel;
 
         public FsmScript(EntityModel entityModel, StateData initStateData)
         {
-            this._entityModel = entityModel;
+            _entityModel = entityModel;
             _currentState = initStateData;
 
-            _allStateDatas = this._entityModel.GetStates();
-            _currentState.State.EnterState(this._entityModel);
+            _currentState.State.EnterState(_entityModel);
         }
 
         public void UpdateState()
